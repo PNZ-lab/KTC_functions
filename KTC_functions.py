@@ -77,11 +77,11 @@ gene_sets = {
             #NOTCH1 upregulated
             'MYC', 'HEY1', 'NFKB1', 'NFKB2', 'CCND1', 'CDKN1A', 'CDKN1B', 'NOTCH1', #Proteins of interest in lab below
             #Laura
-            'NAMPT', 'NAPRT', 'NNMAT1', 'NNMAT2', 'NNMAT3', 'IDO1', 'QPRT', 'DHFR', 'MAT2A' 'HES1', 'BRD4', 'DTX1', 'FOXO3', 'SESN1', 'U2AF1', 'U2AF2',
+            'NAMPT', 'NAPRT', 'NNMAT1', 'NNMAT2', 'NNMAT3', 'IDO1', 'QPRT', 'DHFR', 'MAT2A', 'HES1', 'BRD4', 'DTX1', 'FOXO3', 'SESN1', 'U2AF1', 'U2AF2',
             #Involved in monocyte interactions with vascular endothelial repair. From Wtikowski, 2020
             'PECAM1', 'CD44', 'ITGA4', 'CX3CR1', 'TNFSF10', 'CSF1R ', 
             #m6a proteins
-            'METTL3', 'METTL14', 'METTL16', 'WTAP', 'RBM15', 'RBM15B' 'KIAA429', 'ZC3HI3', 'CBLL1', 'VIRMA', 'FTO', 'ALKBH5', 'HNRNPC', 'YTHDF1', 'YTHDF2', 'YTHDF3', 'YTHDC1', 'YTHDC2', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3', 'HNRNPA2B1',
+            'METTL3', 'METTL14', 'METTL16', 'WTAP', 'RBM15', 'RBM15B', 'KIAA429', 'ZC3HI3', 'CBLL1', 'VIRMA', 'FTO', 'ALKBH5', 'HNRNPC', 'YTHDF1', 'YTHDF2', 'YTHDF3', 'YTHDC1', 'YTHDC2', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3', 'HNRNPA2B1',
             #Frequently mutated in AML
             'DNMT3A', 'TET2', 'ASXL1','TP53', 'KRAS', 'IDH', 
             #Deaminase stuff
@@ -89,13 +89,13 @@ gene_sets = {
             #Mentioned alongside CCR9 in Mansour's paper, expressed in MOLT4 but not healthy cells
             'SD06', 'OR10R2', 'SKAJ', 'DNAH17', 'LZTFL1', 'TCF19', 'MAD2L1', 'UBASH3A', 'LCK', 'ITGAE',
             #Gene is in depmap as having the lowest median score among all cancers for T-ALL
-            'AHCY', 'CHERP','CTPS1','DCDC2','H2BC11','NPTXR','RHOH','SUCLG1','TAS1R2','TONSL','TPT1','ZAP70'
+            'AHCY', 'CHERP','CTPS1','DCDC2','H2BC11','NPTXR','RHOH','SUCLG1','TAS1R2','TONSL','TPT1','ZAP70',
             #Alterations in these genes across 15 subtypes of T-ALL
             'BCL11B', 'KMT2A', 'MLLT10','HOXA9','NKX2','CUL1','CDKN2A','PHF6','LEF1','PSIP1','NOL4L','KMT2E','KAT6A','DDX39B','MYL1','CD99','E2F1','GEMIN8','FBXW7', 
             #Miscellaneous
             'SF3B1', 'BRD9', 'NT5C2', 'USP7', 'BCL2L11', 'MYB', 'RUNX1', 'IKZF3', 'KAT2B', 'PTPN4', 'CYLB', 'ITGB1', 'CCND3', 'PSM3IP', 'CREBBP', 'PSMB9', 'SRSF2', 'SRSF3', 'SRSF6', 'SRSF7',
-            'SRSF11', 'NUP85', 'PSMD4', 'UPF1', 'KDM6B', 'IDH2','INTS3','SPI1', 'TCF7','DHCR7','HMGCS1','WT1','FLT3','KIT','MDA5','PKR','NCOR2''FMR1','MATR3','EP300','LMO1','IRF4','KDM4C', 'IDO',
-            'JQ1', 'MXD1', 'MTAP', 'CHEK1', 'RBM39', 'CCR9', 'CCR7', 'CD19', 'CDK6', 'BRD1', 'BRD2', 'BRD3', 'APCDD1,' "FOXO1", 'PRPF39','MSI2', 'NFKIA','SERPINB1','CD69','CCL25', 'DCAF15',
+            'SRSF11', 'NUP85', 'PSMD4', 'UPF1', 'KDM6B', 'IDH2','INTS3','SPI1', 'TCF7','DHCR7','HMGCS1','WT1','FLT3','KIT','MDA5','PKR','NCOR2', 'FMR1','MATR3','EP300','LMO1','IRF4','KDM4C', 'IDO',
+            'JQ1', 'MXD1', 'MTAP', 'CHEK1', 'RBM39', 'CCR9', 'CCR7', 'CD19', 'CDK6', 'BRD1', 'BRD2', 'BRD3', 'APCDD1', 'FOXO1', 'PRPF39','MSI2', 'NFKIA','SERPINB1','CD69','CCL25', 'DCAF15',
             'TNFSF9', 'TNFRSF9', 'CD38', 'TRBC1', 'TRBC2', 'ZBTB7B', 'RUNX3','ZBP1', 'KMT2D', 'IGF2','TAL1','PTEN', 'IDH1','PIK3CA','PIK3R1','STAT5B','JAK1','JAK2','DNM2','IL7R','NGN3','CASC3', 
             'MEF2C', 'TCF3','PBX1','HLF','ITGAM','AURKB','TLX3','STAG2','SOX11','ID1','ID3','XBP1','CD34','LMO2', 'JAK3', 'RIGI','ADAR','ADARB1','ADARB2','IGHV','FOXM1','AURKA',
             'RELA','TERT','ARNT','HDAC1','HDAC2','HDAC6','HDAC10','NPM1','KDM1B'
