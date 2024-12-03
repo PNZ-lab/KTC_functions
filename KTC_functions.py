@@ -104,19 +104,35 @@ gene_sets = {
 
 
 from gseapy import Msigdb
-def KTC_GetGeneSet(name_gene_set):
+def KTC_GetGeneSet(name_gene_set, db_version='2024.1.Hs'):
     try:
         # First, try to find the gene set in the `gene_sets` dictionary
+        print('Made it Here')
         gene_set = gene_sets[name_gene_set]
         print(f'\n -- NOTE -- Using custom set of genes from gene_sets dictionary: {name_gene_set}')
     except KeyError:
-        try:
-            # If not found, try to fetch it from msigdb
-            gmt = Msigdb().get_gmt(category='h.all', dbver="2024.1.Hs")
-            gene_set = gmt[name_gene_set]
-            print(f'\n -- NOTE -- Using gene set from msigdb: {name_gene_set}')
-        except KeyError:
-            # If still not found, use string as a gene name for set with single gene
+        print('Made it there')
+        # If not found, try to fetch it from msigdb, prioritizing 'HALLMARK' over others
+        categories = ['h.all', 'c2.cp', 'c5.bp', 'c6.all', 'c7.all']
+        msigdb = Msigdb()
+        gmt_cache = {}
+        gene_set = None  # Initialize gene_set in case no match is found
+
+        for category in categories:
+            try:
+                if category not in gmt_cache:
+                    gmt_cache[category] = msigdb.get_gmt(category=category, dbver=db_version)
+                gmt = gmt_cache[category]
+
+                if gmt and name_gene_set in gmt:
+                    print(f'\n -- NOTE -- Using gene set from msigdb: {name_gene_set} from {category}')
+                    gene_set = gmt[name_gene_set]
+                    break  # Exit loop once a match is found
+            except Exception as e:
+                print(f"Error fetching or searching category {category}: {e}")
+
+        if gene_set is None:
+            # If no match is found, use string as a gene name for a set with a single gene
             print(f'\n -- NOTE -- Gene set: {name_gene_set} not found in gene_sets or using Msigdb. Defaulting to interpreting {name_gene_set} as a set with a single gene')
             gene_set = [name_gene_set.upper()]
     return gene_set
