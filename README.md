@@ -16,7 +16,7 @@ This script takes as input a string and attempts to convert it to a set of genes
    - KTC_GetGeneSet('Laura')
 3. Search Msigdb for a set of genes with that name. Default database is human (2024.1.Hs)), e.g:
    - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1') # Find names here: https://www.gsea-msigdb.org/gsea/msigdb/index.jsp
-   - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1', db_version='2024.1.Hs') # Funtionally identical to as above
+   - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1', db_version='2024.1.Hs') # Funtionally identical to the above
    - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1', db_version='2024.1.Mm') # Searching the mouse equivalent
 4. If all of the above fail, it defaults to interpret the string inout as a single gene, e.g:
    - KTC_GetGeneSet('MYC')
