@@ -14,10 +14,12 @@ This script takes as input a string and attempts to convert it to a set of genes
    - KTC_GetGeneSet(['MYC', 'TAL1', 'RBM39'])
 2. Locate a predefined set of genes by a name in the dictionary gene_sets in KTC_functions.py, e.g:
    - KTC_GetGeneSet('Laura')
-3. Search Msigdb for a set of genes with that name. Default database is human (2024.1.Hs)), e.g:
-   - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1') # Find names here: https://www.gsea-msigdb.org/gsea/msigdb/index.jsp
+3. Search Msigdb for a set of genes with that name [1]. Default database is human (2024.1.Hs)), e.g:
+   - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1')
    - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1', db_version='2024.1.Hs') # Funtionally identical to the above
    - KTC_GetGeneSet('HALLMARK_MYC_TARGETS_V1', db_version='2024.1.Mm') # Searching the mouse equivalent
 4. If all of the above fail, it defaults to interpreting the string input as a single gene, e.g:
    - KTC_GetGeneSet('MYC')
+
+[1] : Find names of gene sets here: https://www.gsea-msigdb.org/gsea/msigdb/index.jsp
     
