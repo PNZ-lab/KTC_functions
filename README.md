@@ -32,7 +32,7 @@ KTC_Splice_Mapper('/Users/kasperthorhaugechristensen/Downloads/Homo_sapiens.GRCh
 ```
 Yields:
 
-![image](https://github.com/user-attachments/assets/56b57ca9-7e6e-46ba-a2b7-6d8d0985f771)
+![image](https://github.com/user-attachments/assets/3eb55ee9-3f46-4cb5-b8ae-81980b3dba67)
 
 
 If several maps are to be generated you can perform the parsing of the gtf a single time using KTC_preParse_gtf and then use that as input in KTC_Splice_Mapper to save time (parsing takes ~15s). KTC_Splice_Mapper will register that it is being fed a parsed gtf file in place of an unparsed gtf file and skip the parsing.
