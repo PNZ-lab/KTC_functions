@@ -27,6 +27,11 @@ This script takes as input a string and attempts to convert it to a set of genes
 This script takes as input a gtf file and the output of KTC_rmats_compiler together with the event ID and the splicing event type for an event in the rMATS file. It will return a graph that highlights the positions denoted in the rMATS file on a map of the locations of introns and exons for the relevant gene.
 
 Example:
+For an rMATS table that looks like this:
+
+<img width="583" alt="image" src="https://github.com/user-attachments/assets/d9b9034a-6d29-4ebc-8d28-fd76b5b869aa" />
+
+
 ```
 KTC_Splice_Mapper('/Users/kasperthorhaugechristensen/Downloads/Homo_sapiens.GRCh38.110.chr.gtf', '/Users/kasperthorhaugechristensen/Downloads/KO1_rMATS_compiled.tsv', 80549, 'SE')
 ```
