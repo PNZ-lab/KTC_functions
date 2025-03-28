@@ -46,7 +46,7 @@ Example:
 ```
 preparsed_gtf = KTC_preParse_gtf('/Users/kasperthorhaugechristensen/Downloads/Mus_musculus.GRCm39.110.chr.gtf')
 KTC_Splice_Mapper(preparsed_gtf, '/Volumes/cmgg_pnlab/Kasper/Analyses/Joao/2025_TF_analysis/CD2_v_Vav_rMATS_compiled.tsv', 53351, 'SE')
-KTC_Splice_Mapper(preparsed_gtf, '/Volumes/cmgg_pnlab/Kasper/Analyses/Joao/2025_TF_analysis/CD2_v_Vav_rMATS_compiled.tsv', 53351, 'SE')
+KTC_Splice_Mapper(preparsed_gtf, '/Volumes/cmgg_pnlab/Kasper/Analyses/Joao/2025_TF_analysis/CD2_v_Vav_rMATS_compiled.tsv', 10, 'MXE')
 ```
 Yields:
 ![image](https://github.com/user-attachments/assets/0cd318a9-f5e7-4830-8dd3-718a20abdbf2)
