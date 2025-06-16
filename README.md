@@ -23,3 +23,31 @@ This script takes as input a string and attempts to convert it to a set of genes
 
 [1] : Find names of gene sets here: https://www.gsea-msigdb.org/gsea/msigdb/index.jsp
     
+## KTC_Splice_Mapper(gtf_file, rmats_file, event_id, splicing_event_type)
+This script takes as input a gtf file and the output of KTC_rmats_compiler together with the event ID and the splicing event type for an event in the rMATS file. It will return a graph that highlights the positions denoted in the rMATS file on a map of the locations of introns and exons for the relevant gene.
+
+Example:
+For an rMATS table that looks like this:
+
+<img width="583" alt="image" src="https://github.com/user-attachments/assets/d9b9034a-6d29-4ebc-8d28-fd76b5b869aa" />
+
+
+```
+KTC_Splice_Mapper('/Users/kasperthorhaugechristensen/Downloads/Homo_sapiens.GRCh38.110.chr.gtf', '/Users/kasperthorhaugechristensen/Downloads/KO1_rMATS_compiled.tsv', 80549, 'SE')
+```
+Yields:
+
+![image](https://github.com/user-attachments/assets/3eb55ee9-3f46-4cb5-b8ae-81980b3dba67)
+
+
+If several maps are to be generated you can perform the parsing of the gtf a single time using KTC_preParse_gtf and then use that as input in KTC_Splice_Mapper to save time (parsing takes ~15s). KTC_Splice_Mapper will register that it is being fed a parsed gtf file in place of an unparsed gtf file and skip the parsing.
+
+Example:
+```
+preparsed_gtf = KTC_preParse_gtf('/Users/kasperthorhaugechristensen/Downloads/Mus_musculus.GRCm39.110.chr.gtf')
+KTC_Splice_Mapper(preparsed_gtf, '/Volumes/cmgg_pnlab/Kasper/Analyses/Joao/2025_TF_analysis/CD2_v_Vav_rMATS_compiled.tsv', 53351, 'SE')
+KTC_Splice_Mapper(preparsed_gtf, '/Volumes/cmgg_pnlab/Kasper/Analyses/Joao/2025_TF_analysis/CD2_v_Vav_rMATS_compiled.tsv', 10, 'MXE')
+```
+Yields:
+![image](https://github.com/user-attachments/assets/0cd318a9-f5e7-4830-8dd3-718a20abdbf2)
+![image](https://github.com/user-attachments/assets/0855e3e6-283c-42f5-bcd9-79e0831fb016)
