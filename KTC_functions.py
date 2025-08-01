@@ -14,6 +14,15 @@ Functions in this module:
 '''
 
 from tqdm import tqdm
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from adjustText import adjust_text
+from gseapy import Msigdb
+import gseapy as gp
+import requests
+
 
 #%% ===========================================================================
 # KTC_pos_to_gene
@@ -65,7 +74,7 @@ gene_sets = {
     'm6a_re_wr_er'     : ['METTL3', 'METTL14',  'KIAA1429','RBM15', 'WTAP', 'FTO', 'ALKBH5', 'YTHS', 'EIF3', 'HNRNPC', 'HNRNPA2B1', 'YTHDF1', 'YTHDF2', 'YTHDC1', 'YTHDC2', 'TYSND1', 'SND1', 'PRRC2A', 'LRPPRC', 'FMR1','FMR1NB', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3'],
     'PRC2'             : ['EZH1', 'EZH2', 'EED', 'SUZ12', 'RBBP4', 'RBBP7', 'JARID2', 'PCGF1', 'PCGF2', 'RING1', 'BMI1'],
     'Freya'            : ['ALKBH5', 'CYP51A1', 'DHCR7', 'DHCR24', 'EBP', 'FDFT1', 'FDPS', 'FTO', 'GGPS1', 'HNRNPC', 'HSD17B7', 'IDI1', 'IGF2BP2', 'LDLR', 'LSS', 'METTL3', 'METTL14', 'MSMO1', 'MVD', 'MVK', 'NSDHL', 'PMVK', 'SC5D', 'SQLE', 'YTHDF1', 'YTHDF2'],
-    'Laura'            : ['NAMPT', 'NAPRT', 'IDO', 'DHFR', 'NMNAT1', 'NMNAT2', 'NMNAT3', 'QPRT', 'MAT2A', 'MTAP', 'WTAP', 'E2F1', 'NRK', 'TDO', 'NADSYN'],
+    'Laura'            : ['NAMPT', 'NAPRT', 'IDO', 'DHFR', 'NMNAT1', 'NMNAT2', 'NMNAT3', 'QPRT', 'MAT2A', 'MTAP', 'WTAP', 'E2F1', 'NRK', 'TDO', 'NADSYN', 'MYC', 'BRCA1', 'PCNA', 'RAD51', 'CCNA2', 'CCNE1'],
     'Kevin'            : ['PRPF8', 'SRRM1', 'SRRM2', 'ACIN1', 'RNPS1', 'CLK1', 'CLK2', 'CLK3', 'CLK4'],
     'CM-specific'      : ['Top2a', 'Mki67', 'Prc1', 'Mis18bp1', 'Kif23', 'Kif15', 'Neil3', 'Cenpe', 'Knl1', 'Iqgap3', 'Aspm', 'Racgap1', 'Foxm1', 'Lockd', 'Esco2', 'Cdca8', 'Anln', 'Cdca2', 'Diaph3', 'Ckap2l', 'Birc5', 'Kif11', 'Sgo1', 'Cdca3', 'Knstrn', 'Uhrf1', 'Ttk', 'Cdk1', 'Ankle1', 'Ncapg', 'Spag5', 'Tpx2', 'E2f8', 'Kif4', 'Kif20b', 'Shcbp1', 'Ncapg2', 'Nusap1', 'E2f7', 'Cit', 'Rad51ap1', 'Cenpf', 'Trim59', 'Ncapd2', 'Stmn1', 'Gm42047', 'Smc2', 'Incenp', 'Lmnb1', 'Atad2', 'Plk4', 'Cep128', 'Arl4c', 'Hmgb2', 'Sgo2a', 'Ezh2', 'Lair1', 'Cep192', 'Smc4', 'Hirip3', 'Lcp1', 'Ncapd3', 'Topbp1', 'Laptm5', 'Cdkn2c', 'Runx1', 'Nsd2', 'Hjurp', 'Fam111a', 'H2afz', 'Arhgap30', 'C1qa', 'Ptprc', 'Cenpa', 'Maf', 'F630028O10Rik', 'C1qc', 'Tmpo', 'Lyz2', 'Mrc1', 'Slbp', 'Ctsc', 'Lbr', 'Gatm', 'F13a1', 'Arhgap45', 'C1qb', 'Ccdc82', 'Nav2', 'Tm6sf1', 'Smchd1', 'Nucks1', 'G2e3', 'Apobec3', 'Tubb5', 'Myo5a', 'Dab2', 'Smc1a', 'Git2', 'Arl6ip1', 'Mhrt', 'Gm31251', 'Cpeb3', 'Vegfa', 'Atcayos', 'Prune2', 'Sorbs1', 'Sorbs2', 'Pde4d', 'Rnf207', 'Lmo7', 'Coro6', 'Ryr2', 'Ppip5k2', 'Ivns1abp', 'Myh7b', 'Rbm24', 'Smtn', 'Trim63', 'Dmd', 'D830005E20Rik', 'Rbm20', 'D830024N08Rik', 'Nav2', 'Ppargc1a', 'Ccdc141', 'Pde4dip', 'Dmpk', 'Tnnt2', 'Pde7a', 'Cacna1c', 'Slc4a3', 'Clasp1', 'Gja1', 'Mybpc3', 'Nexn', 'Pcdh7', 'Gm36827', 'Lgals4', 'Obscn', 'Cacnb2', 'Camk2d', 'Palld', 'Neat1', 'Ggnbp1', 'Ttn', 'Tacc2', 'Mapt', 'Pfkfb2', 'Nnt', 'Slc27a1', 'Trim7', 'Ank3', 'Carns1', 'Clip1', 'Ralgapa2', 'Vldlr', 'Ppargc1b', 'Alpk3', '5430431A17Rik', 'Ank2', 'Acacb', 'Myom2', 'Art1', 'Lrrc2', 'Cdh2', 'Enah', 'Dtna', 'Pkp2', 'Lrrfip2', 'Myzap', 'Dot1l', 'Kidins220', 'Tbc1d4', 'Magi2', 'Mlxipl', 'Gpcpd1', 'Hk2', 'Corin', 'Ctnna3', 'Kbtbd12', 'Asph', 'Mlip', 'Retreg1', 'Fblim1', 'Pacsin3', 'Mical3', 'Speg', 'Ldb3', 'Tango2', 'Nebl', 'Agl', 'Grip2', 'Lmod2', 'Ppip5k1', 'Phkg1', 'Cenpa', 'Fhl2', 'Car14', 'Lrtm1', 'D830005E20Rik', 'Rnf207', 'Mhrt', 'Gm31251', 'Atcayos', 'Rbm24', 'Cpeb3', 'Cacnb2', 'Pde7a', 'Myh7b', 'D830024N08Rik', 'Cacna1c', 'Trim63', 'Ppargc1a', 'Mlip', 'Rbm20', 'Pfkfb2', 'Ctnna3', 'Ppip5k2', 'Pkp2', 'Lgals4', 'Vegfa', 'Trim55', 'Ccdc141', 'Mlxipl', 'Coro6', 'Nav2', 'Pde4d', 'Ppp1r3a', 'Sgcd', 'Gm47101', 'Mfn1', 'Nabp1', 'Ank3', 'Dtna', 'Alpk3', 'Ggnbp1', 'Nnt', 'Gm36827', 'Sorbs2', 'Slc8a1', 'Sox6', 'Lmo7', 'Palld', 'Plin4', 'Nexn', 'Lmod2', 'Dmd', 'Gja1', 'Corin', 'Akap6', 'Smtn', 'Slc4a3', 'Art1', 'Carns1', 'Sorbs1', 'Grb14', 'Speg', 'Trim7', 'Prune2', 'Kcnip2', 'Cdh2', 'Ryr2', 'Gm47547', 'Phkg1', '3222401L13Rik', 'Enah', 'Vldlr', 'Lrrc10', 'C130080G10Rik', 'Nebl', 'Pcdh7', 'Agl', 'Dmpk', 'Myzap', 'Clip1', 'Tnnt2', 'Pde4dip', 'Rrad', 'Lrrc2', 'Ppip5k1', 'Neat1', 'Pcgf5', 'Nceh1', 'Obscn', 'Ndufaf4', 'Svil', 'Ank2', 'Tacc2', 'Clasp1', 'Ivns1abp', 'Ttn', 'Asph', '2010111I01Rik', 'Malat1', 'Camk2d', 'Mybpc3', 'Tnnc1', 'Fhl2', 'Ptgds', 'Mb', 'Myl2', 'Actc1', 'Fabp3', 'Cox6a2', 'Slc25a4', 'Myl3', 'Ckm', 'Tpm1', 'Myh6', 'Tnni3', 'Cox7a1', 'Hspb7', 'Des', 'Atp5a1', 'Atp5b', 'Atp5g3', 'Ckmt2', 'Oxct1', 'Cox6c', 'Cryab', 'Cox5a', 'Atp5g1', 'Atp5k', 'Pgam2', 'Cox4i1', 'Ndufa4', 'Chchd10', 'Tcap', 'Atp2a2', 'Pln', 'Cox7c', 'Ttn', 'Tuba4a', 'Cox8b', 'Uqcrq', 'Idh2', 'Ndufa5', 'Uqcr11', 'Myh7', 'Atp5h', 'Actn2', 'Atp5f1', 'Ldhb', 'S100a1', 'Csrp3', 'Aldoa', 'Atp5e', 'Atp5o.1', 'Uqcrfs1', 'Mdh2', 'Sod2', 'Ndufb9', 'Ankrd1', 'Slc25a3', 'Ndufc1', 'Pdha1', 'Mdh1', 'Ech1', 'Cox7b', 'Ndufa13', 'Atp5c1', 'Hrc', 'Atp5j2', 'Xirp2', 'Ndufs2', 'Uqcrh', 'Uqcrb', '2010107E04Rik', 'Atp5j', 'Ndufa2', 'Ndufs6', 'Uqcrc1', 'Acadl', 'Etfb', 'Uqcrc2', 'Usmg5', 'Ndufb8', 'Ndufb7', 'Ndufa1', 'Got1', 'Srl', 'Aco2', 'Dsp', 'Cox6b1', 'Cox5b', 'Cyc1', 'Uqcr10', 'Jph2', 'Acaa2', 'Acadvl', 'Ndufs7', 'Eno3', 'Ndufab1', 'Etfa', 'Trp53inp2', 'Cmya5', 'Zfp106', 'Acta1', 'Dynll2', 'Myl4', 'Myl7', 'Sln', 'Dkk3', 'Stard10', 'Mybphl', 'Sbk3', 'Bmp10', 'Myl1', 'Clu', 'Nppa', 'Myl9', 'Kcnj3', 'Pam', 'Tbx5', 'Gpx3', 'Nudt4', 'Smpx', 'Atp2a2', 'Cryab', 'Ankrd1', 'Chchd10', 'Tnni3', 'Kcnk3', 'Cox6a2', 'Actc1', 'Myh6', 'Cox7c', 'Tpm1', 'Ndufa1', 'Cox6c', 'Cox7a1', 'Atp5b', 'Ndufa4', 'Cox8b', 'Mb', 'Slc25a4', 'Uqcr11', 'Atp5g1', 'Mdh1', 'Uqcrh', 'Atp5a1', 'Csrp3', 'Cycs', 'Atp5e', 'Mtus2', 'Tmod1', 'S100a1', 'Atp5j', 'Cox5a', 'Des', 'Chchd2', 'Cox4i1', 'Atp5g3', 'Cox6b1', 'Mylk3', 'Tcap', 'Atp5k', 'Uqcrq', 'Atp5f1', 'Corin', 'Cox7b', 'Mdh2', 'Fndc5', 'Aldoa', 'Ehd4', 'Atp5d', 'Atp5h', 'Doc2g', 'Uqcrb', 'Uqcrfs1', 'Nppb', 'Hspb7', 'Uqcr10', 'Atp5l', 'Srl', 'Ndufa5', 'Myoz2', 'Angpt1', 'Ndufc1', 'Ndufa11', 'Ndufb9', 'Map1lc3a', 'Ndufa13', 'Gapdh', 'Cox5b', 'Ndufb4', '2010107E04Rik', 'Chrm2', 'Ndufb11', 'Vdac1', 'Atp5j2', 'Cox7a2', 'Atp5c1', 'Eif1', 'Ndufb10', 'Aes', 'Usmg5', 'Ctgf', 'Slc8a1'],
     'PRC2_consistent'  : ['IGF2BP2', 'PLEK', 'KIF21A', 'ID1', 'AFDN', 'SPATS2L', 'CTBP2', 'LMNA', 'RETN', 'BIN1', 'PTK2', 'CST7', 'AHNAK', 'ANXA5', 'CKAP4', 'GOLM1', 'MAT1A', 'SHTN1', 'KCTD12', 'PRKAR2B', 'AP3B2', 'ANXA1', 'HLA-B', 'SMARCA1', 'SPART', 'YPEL5', 'GLRX', 'ANO6', 'FNBP1', 'ACSF2', 'FLNB', 'ALOX5AP', 'SGSH', 'CD38', 'TMEM63A', 'LGALS9', 'ARHGAP25', 'GIMAP2', 'CD2', 'CAMK4', 'CD1A', 'LGALS3BP', 'CD28', 'GNA15', 'UBA7', 'CD1C', 'FYB1', 'TRAC', 'CD1E', 'MAGEA4'],
@@ -112,7 +121,6 @@ gene_sets = {
 # If that fails, it will use the string to search for a public gene set on Msigdb
 # If that fails, it will default to interpreting the input string as a set with a single gene name (the input string)
 
-from gseapy import Msigdb
 def KTC_GetGeneSet(name_gene_set, db_version='2024.1.Hs'):
     try:
         # If the input is a list, capitalize all items and use it as the gene set
@@ -210,10 +218,23 @@ def KTC_orthologue(gene_list, organism_origin='hsapiens', organism_target='mmusc
 def KTC_preParse_gtf(gtf_file):
     import pandas as pd
     print(' -- KTC_preParse_gtf : Pre-parsing GTF...')
-    gtf = pd.read_csv(gtf_file, sep='\t', comment='#', header=None,
-                      names=['seqname', 'source', 'feature', 'start', 'end', 'score', 'strand', 'frame', 'attribute'],
-                      dtype={0: str})
-    print(' -- KTC_SpliceMap : Done')
+
+    # Load GTF with standard column names
+    gtf = pd.read_csv(
+        gtf_file,
+        sep='\t',
+        comment='#',
+        header=None,
+        names=['seqname', 'source', 'feature', 'start', 'end', 'score', 'strand', 'frame', 'attribute'],
+        dtype={0: str}
+    )
+
+    # Extract gene_name, transcript_id, and exon_number from the attribute field
+    gtf['gene_name'] = gtf['attribute'].str.extract(r'gene_name "([^"]+)"')
+    gtf['transcript_id'] = gtf['attribute'].str.extract(r'transcript_id "([^"]+)"')
+    gtf['exon_number'] = gtf['attribute'].str.extract(r'exon_number "(\d+)"')
+
+    print(' -- KTC_preParse_gtf : Done')
     return gtf
 
 def KTC_splice_map(gtf_file, rmats_file, event_id, splicing_event_type):
@@ -350,3 +371,365 @@ def KTC_splice_map(gtf_file, rmats_file, event_id, splicing_event_type):
 # preparsed_gtf = KTC_preParse_gtf('/Users/kasperthorhaugechristensen/Downloads/Mus_musculus.GRCm39.110.chr.gtf')
 # KTC_splice_map(preparsed_gtf, '/Volumes/cmgg_pnlab/Kasper/Analyses/Joao/2025_TF_analysis/CD2_v_Vav_rMATS_compiled.tsv', 53351, 'SE')
 
+#%% ===========================================================================
+# KTC_Volcano
+# =============================================================================
+
+def KTC_PlotVolcano(
+    df,
+    l2fc_col,
+    padj_col,
+    label_col=None,
+    padj_thresh=0.05,
+    l2fc_thresh=1.0,
+    top_n_labels=10,
+    highlight_genes=None,
+    title="Volcano Plot",
+    figsize=(8, 6),
+    dpi=100,
+    alpha=0.7,
+    point_size=20,
+    show_plot=True,
+    save_path=None
+):
+    df = df.copy()
+
+    # Ensure numeric
+    df[l2fc_col] = pd.to_numeric(df[l2fc_col], errors="coerce")
+    df[padj_col] = pd.to_numeric(df[padj_col], errors="coerce")
+    df["-log10(padj)"] = -np.log10(df[padj_col])
+
+    # Default significance logic
+    df["significant"] = (df[padj_col] < padj_thresh) & (df[l2fc_col].abs() > l2fc_thresh)
+
+    # Override coloring if specific genes are to be highlighted
+    if highlight_genes is not None and label_col:
+        df["highlight"] = df[label_col].isin(highlight_genes)
+    else:
+        df["highlight"] = df["significant"]
+
+    # Plotting
+    plt.figure(figsize=figsize, dpi=dpi)
+
+    # Base (non-highlight) points
+    base_df = df[~df["highlight"]]
+    sns.scatterplot(
+        data=base_df,
+        x=l2fc_col,
+        y="-log10(padj)",
+        color="lightgrey",
+        alpha=alpha,
+        s=point_size,
+        edgecolor=None
+    )
+
+    # Highlighted points (if any)
+    highlight_df = df[df["highlight"]]
+    if not highlight_df.empty:
+        sns.scatterplot(
+            data=highlight_df,
+            x=l2fc_col,
+            y="-log10(padj)",
+            color="steelblue",
+            alpha=1,
+            s=point_size * 1.2,
+            edgecolor="black",
+            linewidth=0.5
+        )
+
+    # Labels
+    texts = []
+    if label_col and not highlight_df.empty:
+        if highlight_genes is not None:
+            label_df = highlight_df  # Label only highlighted genes
+        else:
+            label_df = highlight_df.nlargest(top_n_labels, "-log10(padj)")
+        for _, row in label_df.iterrows():
+            texts.append(
+                plt.text(
+                    row[l2fc_col],
+                    row["-log10(padj)"],
+                    str(row[label_col]),
+                    fontsize=8
+                )
+            )
+        adjust_text(
+            texts,
+            arrowprops=dict(arrowstyle="-", color='gray', lw=0.5),
+            only_move={'points': 'y', 'text': 'y'}
+        )
+
+    # Threshold lines
+    plt.axhline(-np.log10(padj_thresh), color='black', linestyle='--', lw=1)
+    plt.axvline(-l2fc_thresh, color='black', linestyle='--', lw=1)
+    plt.axvline(l2fc_thresh, color='black', linestyle='--', lw=1)
+
+    # Final formatting
+    plt.title(title)
+    plt.xlabel("log2 Fold Change")
+    plt.ylabel("-log10 Adjusted p-value")
+    sns.despine()
+
+    if save_path:
+        plt.savefig(save_path, bbox_inches="tight")
+    if show_plot:
+        plt.show()
+    else:
+        plt.close()
+
+#%% ===========================================================================
+# 
+# =============================================================================
+
+
+def KTC_multi_enrichment_plot(
+    gene_list,
+    gene_sets=[
+        "TRRUST_Transcription_Factors_2019",
+        "GO_Biological_Process_2021",
+        "KEGG_2019_Human",
+        "ChEA_2016",
+        "MSigDB_Hallmark_2020"
+    ],
+    organism="human",
+    top_n=5,
+    figsize=(12, 8),
+    outdir=None,
+    title=None,
+    title_suffix='',
+    filename_suffix='',  # ← new
+    palette='Set2',
+    significant_only=True
+):
+    if not isinstance(gene_list, list) or not gene_list:
+        raise ValueError("gene_list must be a non-empty list of gene symbols.")
+
+    all_results = []
+    found_significant = False  # ← track if anything is significant
+
+    print()
+    for gs in gene_sets:
+        print(f' -- KTC_GetGeneSet : Searching {gs}')
+        try:
+            enr = gp.enrichr(
+                gene_list=gene_list,
+                organism=organism,
+                gene_sets=gs,
+                no_plot=True,
+                outdir=None
+            )
+            if enr.results is None or enr.results.empty:
+                print(f"  [WARN] No enrichment results found for {gs}, skipping.")
+                continue
+
+            df = enr.results.copy()
+
+            if significant_only:
+                df = df[df["Adjusted P-value"] < 0.05]
+                if df.empty:
+                    print(f"  [INFO] No significant terms (adj p < 0.05) for {gs}, skipping.")
+                    continue
+                else:
+                    found_significant = True
+            else:
+                found_significant = True  # even non-sig is allowed
+
+            df = df.sort_values("Adjusted P-value").head(top_n)
+            df["Gene Set"] = gs
+            df["-log10(p-value)"] = -np.log10(df["P-value"])
+            all_results.append(df)
+
+        except Exception as e:
+            print(f"  [ERROR] Error fetching enrichment results for {gs}: {e}")
+            continue
+
+    if not all_results:
+        print("⚠️  No enrichment results to display.")
+        return pd.DataFrame()
+
+    if significant_only and not found_significant:
+        print("⚠️  No significant enrichment terms found in any gene set (adj p < 0.05).")
+        return pd.DataFrame()
+
+    # Combine results
+    combined_df = pd.concat(all_results, ignore_index=True)
+
+    # Sort for nicer plotting
+    combined_df["Term"] = combined_df["Term"].str.slice(0, 60)
+    combined_df.sort_values("-log10(p-value)", ascending=False, inplace=True)
+
+    # Determine figure height based on number of terms
+    n_terms = combined_df.shape[0]
+    buffer = 1               # space for title, axes, legend
+    height_per_row = 0.3       # height per term row
+    max_height = 20            # optional upper limit
+    dynamic_height = buffer + (n_terms * height_per_row)
+    dynamic_height = min(dynamic_height, max_height)
+    
+    plt.figure(figsize=(figsize[0], dynamic_height))
+    sns.barplot(
+        data=combined_df,
+        y="Term",
+        x="-log10(p-value)",
+        hue="Gene Set",
+        dodge=False,
+        palette=palette
+    )
+
+    
+    
+    if title is None:
+        no_genes = len(gene_list)
+        title = f"Top {top_n} Enriched Terms Across Multiple Gene Sets ({no_genes} genes)"
+    title = title + title_suffix
+    plt.title(title)
+    plt.xlabel("-log10(p-value)")
+    plt.axvline(-np.log10(0.05), color='red', linestyle='--', label='p = 0.05 (adj)')
+    plt.legend(loc='lower right')
+    plt.tight_layout()
+
+    if outdir:
+        filename = f"multi_enrichment_plot{filename_suffix}.svg"
+        path = f"{outdir}/{filename}"
+        plt.savefig(path)
+        print(f"Saved plot to {path}")
+    else:
+        plt.show()
+
+    return combined_df
+
+
+
+#%% ===========================================================================
+# KTC_plot_transcript_splicing
+# =============================================================================
+
+def KTC_get_canonical_transcript(gene_symbol, species='human'):
+    """
+    Query Ensembl REST API to get the canonical transcript for a gene.
+    """
+    server = "https://rest.ensembl.org"
+    ext = f"/lookup/symbol/{species}/{gene_symbol}?expand=1"
+    headers = {"Content-Type": "application/json"}
+
+    r = requests.get(server + ext, headers=headers)
+    if not r.ok:
+        print(f"❌ Error fetching data for {gene_symbol}")
+        return None
+
+    data = r.json()
+    if "Transcript" in data:
+        for transcript in data["Transcript"]:
+            if transcript.get("is_canonical"):
+                return transcript["id"]
+    return None
+
+
+def KTC_plot_transcript_splicing(gtf_file, rmats_file, event_id, splicing_event_type):
+    print(' -- KTC_plot_transcript_splicing : Reading GTF...')
+
+    # Load or use pre-parsed GTF DataFrame
+    if isinstance(gtf_file, pd.DataFrame):
+        gtf = gtf_file.copy()
+        print(' -- KTC_plot_transcript_splicing : Using pre-parsed GTF')
+    else:
+        gtf = pd.read_csv(gtf_file, sep='\t', comment='#', header=None,
+                          names=['seqname', 'source', 'feature', 'start', 'end', 'score', 'strand', 'frame', 'attribute'])
+        gtf['gene_name'] = gtf['attribute'].str.extract(r'gene_name "([^"]+)"')
+        gtf['transcript_id'] = gtf['attribute'].str.extract(r'transcript_id "([^"]+)"')
+        gtf['exon_number'] = gtf['attribute'].str.extract(r'exon_number "(\d+)"')
+
+    print(' -- KTC_plot_transcript_splicing : Reading rMATS...')
+    rmats = pd.read_csv(rmats_file, sep='\t')
+    rmats = rmats[rmats['Splicing Event'] == splicing_event_type]
+    event = rmats[rmats.iloc[:, 0] == event_id]
+    if event.empty:
+        print(f' -- KTC_plot_transcript_splicing : Event ID {event_id} not found')
+        return
+    event = event.iloc[0]
+
+    gene_id = event['geneSymbol']
+    strand = event['strand']
+    chrom = event['chr'].replace('chr', '')
+
+    skipped_start = int(event['exonStart_0base']) + 1
+    skipped_end = int(event['exonEnd'])
+
+    print(f' -- Plotting transcripts for gene {gene_id} with skipped region {skipped_start}-{skipped_end}')
+
+    # Filter exons for this gene
+    gene_exons = gtf[
+        (gtf['gene_name'] == gene_id) &
+        (gtf['seqname'].str.replace('chr', '') == chrom) &
+        (gtf['strand'] == strand) &
+        (gtf['feature'] == 'exon')
+    ].copy()
+
+    gene_exons.sort_values(['transcript_id', 'start'], inplace=True)
+    transcripts = gene_exons.groupby('transcript_id')
+
+    # Identify canonical transcript
+    canonical_tx = KTC_get_canonical_transcript(gene_id)
+    if canonical_tx:
+        print(f" -- Canonical transcript: {canonical_tx}")
+    else:
+        print(" -- Canonical transcript: ❌ Not found")
+
+    fig, ax = plt.subplots(figsize=(12, max(4, len(transcripts) * 0.8)), dpi=200)
+
+    def causes_frameshift(exons, skipped, tx_id):
+        full_length = (exons['end'] - exons['start'] + 1).sum()
+        skipped_exon_length = skipped[1] - skipped[0] + 1
+        skipped_length = full_length - skipped_exon_length
+    
+        print()
+        print(f" {tx_id}")
+        print(f" -- Length of full transcript: {full_length} | Divisible by 3: {full_length % 3 == 0}")
+        print(f" -- Skipped exon length: {skipped_exon_length} | Divisible by 3: {skipped_exon_length % 3 == 0}")
+        print(f" -- Length without skipped exon: {skipped_length} | Divisible by 3: {skipped_length % 3 == 0}")
+    
+        return (skipped_length % 3) != 0
+
+    for idx, (tx_id, exons) in enumerate(transcripts):
+        y = -idx
+        exons = exons.sort_values('start')
+        prev_end = None
+        is_canonical = (tx_id == canonical_tx)
+
+        frame_shift = causes_frameshift(exons, (skipped_start, skipped_end), tx_id)
+
+        # Background highlight if canonical
+        if is_canonical:
+            ax.add_patch(plt.Rectangle(
+                (gene_exons['start'].min() - 800, y - 0.4),
+                gene_exons['end'].max() - gene_exons['start'].min() + 1000,
+                0.8, color='yellow', alpha=0.2
+            ))
+
+        for _, exon in exons.iterrows():
+            start, end = exon['start'], exon['end']
+            color = 'black'
+            if start == skipped_start and end == skipped_end:
+                color = 'red' if frame_shift else 'green'
+
+            ax.add_patch(plt.Rectangle((start, y - 0.2), end - start + 1, 0.4, color=color))
+
+            if prev_end is not None:
+                ax.plot([prev_end, start], [y, y], color='black', linewidth=1.0)
+
+            prev_end = end
+
+        label_style = {'fontsize': 9, 'va': 'center', 'ha': 'right'}
+        # if is_canonical:
+        #     label_style['fontweight'] = 'bold'
+            # label_style['color'] = 'darkblue'
+
+        ax.text(gene_exons['start'].min() - 300, y, tx_id, **label_style)
+
+    ax.set_ylim(y - 1, 1)
+    ax.set_xlim(gene_exons['start'].min() - 500, gene_exons['end'].max() + 500)
+    ax.axis('off')
+
+    plt.title(f'Gene: {gene_id} | Skipped exon: {skipped_start}-{skipped_end}')
+    plt.tight_layout()
+    plt.show()
