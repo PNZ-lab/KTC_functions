@@ -32,7 +32,6 @@ import requests
 # Function should handle cases with and without 'chr' prefix
 # Returns a list of gene names for those positions
 
-
 def KTC_pos_to_gene(path_GTF, list_pos):
     import pandas as pd
 
@@ -80,6 +79,8 @@ gene_sets = {
     'PRC2_consistent'  : ['IGF2BP2', 'PLEK', 'KIF21A', 'ID1', 'AFDN', 'SPATS2L', 'CTBP2', 'LMNA', 'RETN', 'BIN1', 'PTK2', 'CST7', 'AHNAK', 'ANXA5', 'CKAP4', 'GOLM1', 'MAT1A', 'SHTN1', 'KCTD12', 'PRKAR2B', 'AP3B2', 'ANXA1', 'HLA-B', 'SMARCA1', 'SPART', 'YPEL5', 'GLRX', 'ANO6', 'FNBP1', 'ACSF2', 'FLNB', 'ALOX5AP', 'SGSH', 'CD38', 'TMEM63A', 'LGALS9', 'ARHGAP25', 'GIMAP2', 'CD2', 'CAMK4', 'CD1A', 'LGALS3BP', 'CD28', 'GNA15', 'UBA7', 'CD1C', 'FYB1', 'TRAC', 'CD1E', 'MAGEA4'],
     'm6a_story'        : ['NFKB', 'IKZF3', 'IRF4', 'MTAP', 'MYC', 'FDFT1', 'BCL2', 'PTEN', 'ASB2', 'RARA', 'FTO', 'METTL3', 'ALKBH', 'YTHDF', 'HNRNP', 'HNRNPC', 'PTEN', 'SP1', 'CEBPA', 'DHCR7', 'HMGCS1', 'SOCS1', 'SOCS3', 'NOTCH1', 'MSI2', 'BRD4', ],
     'Cristina'         : ['KDM6B', 'SPI1', 'PU1', 'CD44', 'CEBPA', 'CEBPB', 'CEBPD', 'CEBPE', 'CEBPG', 'CEBPZ', 'LTF', 'TK1', 'DNMT1'],
+    'Cristina_extra'   : ['XIST', 'MLL1', 'CHD4', 'PU1', 'CEBPA', 'CEBPB', 'LSD1', 'KDM6A', 'LTF', 'SMARCA4', 'ARID1A', 'CEBPD', 'HDAC2', 'MIR21', 'CD44', 'EP300', 'KDM5B', 'TET1', 'KDM6B', 'TET2', 'lncRNA', 'SMARCB1', 'SUZ12', 'DNMT1', 'KDM4A', 'RAD21', 'NIPBL', 'HDAC3', 'CTCF', 'TK1', 'KDM1A', 'CBP', 'BRG1', 'CEBPE', 'BAF47', 'KMT2A', 'p300', 'EZH2', 'EED', 'CEBPZ', 'CREBBP', 'DNMT3A', 'DNMT3B', 'HDAC1', 'TET3', 'SPI1', 'CEBPG', 'BRD4'],
+
     'Master'           : [
         #PRC1/2
         'RING1', 'BMI1', 'PCGF1', 'PCGF2', 'EED', 'SUZ12', 'EZH1', 'EZH2', 'RBBP4', 'RBBP7', 'JARID2',
@@ -114,8 +115,6 @@ gene_sets = {
     'Tibo' : ["PSMG1", "PSMG2", "PSMG3", "PSMG4", "POMP", "PSMB8", "PSMB10", "PSMB9", "HSPB1", "PSMA4", "PSMA6", "PSMA5", "PSMD4", "PSME1", "PSME2", "PSMD10", "PSME3", "PSMF1", "RAD23A", "PSMB5", "ADRM1", "PSMC3", "PSMB3", "PSMD8", "PSMB6", "PSMA7", "PSMD13", "PSMA3", "PSMB1", "PSMA2", "PSMB7", "PSMA1", "PSMB4", "PSMC1", "PSMC2", "PSMD3", "PSMD7", "PSMB2", "VCP", "TXNL1", "UBQLN1", "PSMD9", "ZFAND2A", "PSMD14", "PSMD1", "RAD23B", "PSMC5", "PSMC4", "PSMD2", "UBR1", "PSMC6", "PSMD6", "PSMD5", "UBE3A", "USP14", "PSMD11", "PSME4", "PSMD12", "PSMA8", "UCHL5", "PAAF1", "UBE3C", "ECPAS", "PRICKLE1"]
 	}
 
-
-# This function helps define gene sets to be highlighted.
 # A set of genes is selected based on the string used as input.
 # First, the string is tested in the custom set of gene sets in gene_sets dictionary above.
 # If that fails, it will use the string to search for a public gene set on Msigdb
@@ -485,119 +484,145 @@ def KTC_PlotVolcano(
 def KTC_multi_enrichment_plot(
     gene_list,
     gene_sets=[
+        'ENCODE_and_ChEA_Consensus_TFs_from_ChIP-X',
         "TRRUST_Transcription_Factors_2019",
         "GO_Biological_Process_2021",
         "KEGG_2019_Human",
         "ChEA_2016",
-        "MSigDB_Hallmark_2020"
+        "MSigDB_Hallmark_2020",
+        'Reactome_2022'
     ],
     organism="human",
     top_n=5,
+    show_all_significant=False,
     figsize=(12, 8),
-    outdir=None,
+    out_dir=None,
     title=None,
     title_suffix='',
-    filename_suffix='',  # ← new
+    filename_suffix='',
     palette='Set2',
-    significant_only=True
+    significant_only=True,
+    filter_term_keywords=None,  #List of items within e.g. MSigDB_Hallmark_2020 to get info for
+    show_legend=True
 ):
     if not isinstance(gene_list, list) or not gene_list:
         raise ValueError("gene_list must be a non-empty list of gene symbols.")
 
+    print(f"\n -- Performing batch enrichment for {len(gene_sets)} gene sets...")
+
+    try:
+        enr = gp.enrichr(
+            gene_list=gene_list,
+            organism=organism,
+            gene_sets=gene_sets,  # Batch request
+            no_plot=True,
+            outdir=None
+        )
+    except Exception as e:
+        print(f"  [ERROR] Batch enrichment request failed: {e}")
+        return pd.DataFrame()
+
+    if enr.results is None or enr.results.empty:
+        print("⚠No enrichment results found.")
+        return pd.DataFrame()
+
+    # Ensure 'Gene_set' column exists
+    if 'Gene_set' not in enr.results.columns:
+        enr.results['Gene_set'] = enr.results.index.get_level_values(0)
+
     all_results = []
-    found_significant = False  # ← track if anything is significant
 
-    print()
+    # Loop through gene sets to filter and collect significant results
     for gs in gene_sets:
-        print(f' -- KTC_GetGeneSet : Searching {gs}')
-        try:
-            enr = gp.enrichr(
-                gene_list=gene_list,
-                organism=organism,
-                gene_sets=gs,
-                no_plot=True,
-                outdir=None
-            )
-            if enr.results is None or enr.results.empty:
-                print(f"  [WARN] No enrichment results found for {gs}, skipping.")
-                continue
+        df = enr.results[enr.results['Gene_set'] == gs].copy()
 
-            df = enr.results.copy()
-
-            if significant_only:
-                df = df[df["Adjusted P-value"] < 0.05]
-                if df.empty:
-                    print(f"  [INFO] No significant terms (adj p < 0.05) for {gs}, skipping.")
-                    continue
-                else:
-                    found_significant = True
-            else:
-                found_significant = True  # even non-sig is allowed
-
-            df = df.sort_values("Adjusted P-value").head(top_n)
-            df["Gene Set"] = gs
-            df["-log10(p-value)"] = -np.log10(df["P-value"])
-            all_results.append(df)
-
-        except Exception as e:
-            print(f"  [ERROR] Error fetching enrichment results for {gs}: {e}")
+        if df.empty:
+            print(f"  [INFO] No results for {gs}, skipping.")
             continue
 
+        if significant_only:
+            df = df[df["Adjusted P-value"] < 0.05]
+            if df.empty:
+                print(f"  [INFO] No significant terms (adj p < 0.05) for {gs}, skipping.")
+                continue
+
+        # Sort and decide how many terms to display
+        df = df.sort_values("Adjusted P-value")
+        if not show_all_significant:
+            df = df.head(top_n)
+
+        df["-log10(Adjusted p-value)"] = -np.log10(df["Adjusted P-value"])
+        all_results.append(df)
+
     if not all_results:
-        print("⚠️  No enrichment results to display.")
+        print("No enrichment results to display after filtering.")
         return pd.DataFrame()
 
-    if significant_only and not found_significant:
-        print("⚠️  No significant enrichment terms found in any gene set (adj p < 0.05).")
-        return pd.DataFrame()
-
-    # Combine results
+    # Combine results for plotting
     combined_df = pd.concat(all_results, ignore_index=True)
-
+     
+    # Apply keyword filtering if requested
+    if filter_term_keywords is not None:
+        regex_pattern = '|'.join(filter_term_keywords)
+        combined_df = combined_df[combined_df["Term"].str.contains(regex_pattern, case=False, na=False)]
+    
+        if combined_df.empty:
+            print(f"No terms matched the filter keywords: {filter_term_keywords}")
+            return pd.DataFrame()
+        else:
+            print(f"Filtered terms matching keywords: {filter_term_keywords}")
+    
+        # 🔥 RE-APPLY SIGNIFICANCE FILTER AFTER KEYWORD FILTERING
+        if significant_only:
+            combined_df = combined_df[combined_df["Adjusted P-value"] < 0.05]
+            if combined_df.empty:
+                print(f"No significant terms remain after keyword filtering.")
+                return pd.DataFrame()
+     
     # Sort for nicer plotting
     combined_df["Term"] = combined_df["Term"].str.slice(0, 60)
-    combined_df.sort_values("-log10(p-value)", ascending=False, inplace=True)
+    combined_df.sort_values("-log10(Adjusted p-value)", ascending=False, inplace=True)
 
-    # Determine figure height based on number of terms
+
+    # Dynamic figure height
     n_terms = combined_df.shape[0]
-    buffer = 1               # space for title, axes, legend
-    height_per_row = 0.3       # height per term row
-    max_height = 20            # optional upper limit
-    dynamic_height = buffer + (n_terms * height_per_row)
-    dynamic_height = min(dynamic_height, max_height)
+    buffer = 1
+    height_per_row = 0.3
+    max_height = 20
+    dynamic_height = min(buffer + (n_terms * height_per_row), max_height)
     
     plt.figure(figsize=(figsize[0], dynamic_height))
     sns.barplot(
         data=combined_df,
         y="Term",
-        x="-log10(p-value)",
-        hue="Gene Set",
+        x="-log10(Adjusted p-value)",
+        hue="Gene_set",
         dodge=False,
         palette=palette
     )
 
-    
-    
     if title is None:
-        no_genes = len(gene_list)
-        title = f"Top {top_n} Enriched Terms Across Multiple Gene Sets ({no_genes} genes)"
+        no_genes = len(set(gene_list))
+        title = f"Top {top_n if not show_all_significant else 'All Significant'} Enriched Terms ({no_genes} genes)"
     title = title + title_suffix
+
     plt.title(title)
-    plt.xlabel("-log10(p-value)")
-    plt.axvline(-np.log10(0.05), color='red', linestyle='--', label='p = 0.05 (adj)')
-    plt.legend(loc='lower right')
+    plt.xlabel("-log10(Adjusted p-value)")
+    plt.axvline(-np.log10(0.05), color='red', linestyle='--', label='Adjusted p = 0.05')
+    if show_legend:
+        plt.legend(loc='lower center')
+    else:
+        plt.legend().set_visible(False)
     plt.tight_layout()
 
-    if outdir:
+    if out_dir:
         filename = f"multi_enrichment_plot{filename_suffix}.svg"
-        path = f"{outdir}/{filename}"
+        path = f"{out_dir}/{filename}"
         plt.savefig(path)
         print(f"Saved plot to {path}")
-    else:
-        plt.show()
+    plt.show()
 
     return combined_df
-
 
 
 #%% ===========================================================================
