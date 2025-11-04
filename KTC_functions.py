@@ -107,7 +107,7 @@ gene_sets = {
         #Miscellaneous
         'FBXW7', 'SF3B1', 'BRD9', 'NT5C2', 'FOXO3', 'USP7', 'BCL2L11', 'MYB', 'RUNX1', 'IKZF3', 'KAT2B', 'PTPN4', 'CYLB', 'ITGB1', 'CCND3', 'PSM3IP', 'CREBBP', 'PSMB9', 'SRSF2', 'SRSF3', 'SRSF6', 'SRSF7',
         'SRSF11', 'NUP85', 'PSMD4', 'NUP85', 'UPF1', 'KDM6B', 'IDH2','INTS3','SPI1', 'TCF7','DHCR7','HMGCS1','WT1','FLT3','KIT','MDA5','PKR','NCOR2''FMR1','MATR3','EP300','LMO1','IRF4','KDM4C',
-        'JQ1', 'MXD1', 'MTAP', 'WTAP', 'CHEK1', 'RBM39', 'CCR9', 'CCR7', 'CD19', 'CDK6', 'BRD1', 'BRD2', 'BRD3', 'BRD4', 'APCDD1,' "FOXO1", 'PRPF39','MSI2', 'NFKIA','SERPINB1','CD69','CCL25', 'DCAF15',
+        'JQ1', 'MXD1', 'MTAP', 'WTAP', 'CHEK1', 'RBM39', 'CCR9', 'CCR7', 'CD19', 'CDK6', 'BRD1', 'BRD2', 'BRD3', 'BRD4', 'APCDD1', "FOXO1", 'PRPF39','MSI2', 'NFKIA','SERPINB1','CD69','CCL25', 'DCAF15',
         'TNFSF9', 'TNFRSF9', 'CD38', 'TRBC1', 'TRBC2', 'ZBTB7B', 'RUNX3','ZBP1', 'FBXW7', 'KMT2D', 'IGF2','TAL1','PTEN', 'IDH1','PIK3CA','PIK3R1','STAT5B','JAK1','JAK2','DNM2','IL7R','NGN3','CASC3', 'IDO',
         'MEF2C', 'TCF3','PBX1','HLF','ITGAM','AURKB','TLX3','STAG2','SOX11','XBP1','ID1','ID3','XBP1','CD34','LMO2', 'JAK3', 'RIGI','ADAR','ADARB1','ADARB2','IGHV','FOXM1','AURKA',
         'RELA','TERT','ARNT','HDAC1','HDAC2','HDAC6','HDAC10','NPM1','KDM1B'
@@ -385,7 +385,7 @@ def KTC_PlotVolcano(
     highlight_genes=None,
     title="Volcano Plot",
     figsize=(8, 6),
-    dpi=100,
+    dpi=200,
     alpha=0.7,
     point_size=20,
     show_plot=True,
@@ -758,3 +758,11 @@ def KTC_plot_transcript_splicing(gtf_file, rmats_file, event_id, splicing_event_
     plt.title(f'Gene: {gene_id} | Skipped exon: {skipped_start}-{skipped_end}')
     plt.tight_layout()
     plt.show()
+
+#%%
+def KTC_make_list(not_list):
+    # Split by lines, strip whitespace, and remove empty entries
+    lines = [line.strip() for line in not_list.strip().splitlines() if line.strip()]
+    # Return as list of strings
+    return lines
+
