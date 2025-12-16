@@ -64,12 +64,12 @@ def KTC_pos_to_gene(path_GTF, list_pos):
 
 gene_sets = {
     'None' : [],
-    'm6a readers'      : ['HNRNPC', 'YTHDF1', 'YTHDF2', 'YTHDF3', 'YTHDC1', 'YTHDC2', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3', 'HNRNPA2B1'],
+    'm6a_readers'      : ['HNRNPC', 'YTHDF1', 'YTHDF2', 'YTHDF3', 'YTHDC1', 'YTHDC2', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3', 'HNRNPA2B1'],
     'splicing_factors' : ['SFRS7', 'CUGBP1', 'DAZAP1', 'CUGBP2', 'FMR1', 'A2BP1', 'RBFOX2', 'HNRNPA0', 'HNRNPA1', 'HNRNPA2B1', 'HNRNPC', 'HNRNPC', 'HNRNPC', 'HNRNPD', 'HNRNPD', 'HNRPDL', 'PCBP1', 'PCBP2', 'HNRNPF', 'HNRNPH1', 'HNRNPH2', 'HNRNPH3', 'PTBP1', 'HNRNPK', 'HNRNPK', 'HNRNPL', 'HNRPLL', 'HNRNPM', 'FUS', 'HNRNPU', 'TRA2A', 'TRA2B', 'ELAVL2', 'ELAVL4', 'ELAVL1', 'KHSRP', 'MBNL1', 'NOVA1', 'NOVA2', 'PTBP2', 'SFPQ', 'RBM25', 'RBM4', 'KHDRBS1', 'SF3B1', 'SFRS2', 'SF1', 'SFRS1', 'KHDRBS2', 'KHDRBS3', 'SFRS3', 'SFRS9', 'SFRS13A', 'SFRS5', 'SFRS11', 'SFRS6', 'SFRS4', 'TARDBP', 'TIA1', 'TIAL1', 'YBX1', 'ZRANB2', 'ELAVL3', 'RBM5', 'SYNCRIP', 'HNRNPA3', 'QKI', 'RBMX', 'SRRM1', 'ESRP1', 'ESRP2'], # From SpliceAid
     'EpiFactors'       : ['A1CF', 'ACINU', 'ACTB', 'ACTL6A', 'ACTL6B', 'ACTR3B', 'ACTR5', 'ACTR6', 'ACTR8', 'ADNP', 'AEBP2', 'AICDA', 'AIRE', 'ALKBH1', 'ALKBH1', 'ALKBH4', 'ALKBH5', 'ANKRD32', 'ANP32A', 'ANP32B', 'ANP32E', 'APBB1', 'APEX1', 'APOBEC1', 'APOBEC2', 'APOBEC3A', 'APOBEC3B', 'APOBEC3C', 'APOBEC3D', 'APOBEC3F', 'APOBEC3G', 'APOBEC3H', 'ARID1A', 'ARID1B', 'ARID2', 'ARID4A', 'ARID4B', 'ARNTL', 'ARRB1', 'ASF1A', 'ASF1B', 'ASH1L', 'ASH2L', 'ASXL1', 'ASXL2', 'ASXL3', 'ATAD2', 'ATAD2B', 'ATF2', 'ATF7IP', 'ATM', 'ATN1', 'ATR', 'ATRX', 'ATXN7', 'ATXN7L3', 'AURKA', 'AURKB', 'AURKC', 'BABAM1', 'BAHD1', 'BANP', 'BAP1', 'BARD1', 'BAZ1A', 'BAZ1B', 'BAZ2A', 'BAZ2B', 'BCOR', 'BCORL1', 'BMI1', 'BPTF', 'BRCA1', 'BRCA2', 'BRCC3', 'BRD1', 'BRD2', 'BRD3', 'BRD4', 'BRD7', 'BRD8', 'BRD9', 'BRDT', 'BRE', 'BRMS1', 'BRMS1L', 'BRPF1', 'BRPF3', 'BRWD1', 'BRWD3', 'BUB1', 'C11orf30', 'C14orf169', 'C17orf49', 'CARM1', 'CBLL1', 'CBX1', 'CBX2', 'CBX3', 'CBX4', 'CBX5', 'CBX6', 'CBX7', 'CBX8', 'CCDC101', 'CDC6', 'CDC73', 'CDK1', 'CDK17', 'CDK2', 'CDK3', 'CDK5', 'CDK7', 'CDK9', 'CDY1', 'CDY1B', 'CDY2A', 'CDY2B', 'CDYL', 'CDYL2', 'CECR2', 'CELF1', 'CELF2', 'CELF3', 'CELF4', 'CELF5', 'CELF6', 'CENPC', 'CHAF1A', 'CHAF1B', 'CHD1', 'CHD1L', 'CHD2', 'CHD3', 'CHD4', 'CHD5', 'CHD6', 'CHD7', 'CHD8', 'CHD9', 'CHEK1', 'CHRAC1', 'CHTOP', 'CHUK', 'CIR1', 'CIT', 'CLNS1A', 'CLOCK', 'CRB2', 'CREBBP', 'CSNK2A1', 'CSRP2BP', 'CTBP1', 'CTBP2', 'CTCF', 'CTCFL', 'CTR9', 'CUL1', 'CUL2', 'CUL3', 'CUL4A', 'CUL4B', 'CUL5', 'CXXC1', 'DAPK3', 'DAXX', 'DDB1', 'DDB2', 'DDX17', 'DDX21', 'DDX5', 'DDX50', 'DEK', 'DHX9', 'DMAP1', 'DNAJC1', 'DNAJC2', 'DND1', 'DNMT1', 'DNMT3A', 'DNMT3B', 'DNMT3L', 'DNTTIP2', 'DOT1L', 'DPF1', 'DPF2', 'DPF3', 'DPPA3', 'DPY30', 'DR1', 'DTX3L', 'DZIP3', 'E2F6', 'EED', 'EEF1AKMT3', 'EEF1AKMT4', 'EEF1AKNMT', 'EHMT1', 'EHMT2', 'EID1', 'EID2', 'EID2B', 'EIF4A3', 'ELP2', 'ELP3', 'ELP4', 'ELP5', 'ELP6', 'ENY2', 'EP300', 'EP400', 'EPC1', 'EPC2', 'ERBB4', 'ERCC6', 'EXOSC1', 'EXOSC2', 'EXOSC3', 'EXOSC4', 'EXOSC5', 'EXOSC6', 'EXOSC7', 'EXOSC8', 'EXOSC9', 'EYA1', 'EYA2', 'EYA3', 'EYA4', 'EZH1', 'EZH2', 'FAM175A', 'FAM175B', 'FBL', 'FBRS', 'FBRSL1', 'FOXA1', 'FOXO1', 'FOXP1', 'FOXP2', 'FOXP3', 'FOXP4', 'FTO', 'GADD45A', 'GADD45B', 'GADD45G', 'GATAD1', 'GATAD2A', 'GATAD2B', 'GFI1', 'GFI1B', 'GLYR1', 'GSE1', 'GSG2', 'GTF2I', 'GTF3C4', 'HAT1', 'HCFC1', 'HCFC2', 'HDAC1', 'HDAC10', 'HDAC11', 'HDAC2', 'HDAC3', 'HDAC4', 'HDAC5', 'HDAC6', 'HDAC7', 'HDAC8', 'HDAC9', 'HDGF', 'HDGFL2', 'HELLS', 'HIF1AN', 'HINFP', 'HIRA', 'HIRIP3', 'HJURP', 'HLCS', 'HLTF', 'HMG20A', 'HMG20B', 'HMGB1', 'HMGN1', 'HMGN2', 'HMGN3', 'HMGN4', 'HMGN5', 'HNRNPU', 'HNRPL', 'HNRPM', 'HP1BP3', 'HR', 'HSFX3', 'HSPA1A', 'HSPA1A', 'HSPA1B', 'HSPA1B', 'HUWE1', 'IKBKAP', 'IKZF1', 'IKZF3', 'ING1', 'ING2', 'ING3', 'ING4', 'ING5', 'INO80', 'INO80B', 'INO80C', 'INO80D', 'INO80E', 'JADE1', 'JADE2', 'JADE3', 'JAK2', 'JARID2', 'JDP2', 'JMJD1C', 'JMJD6', 'KANSL1', 'KANSL2', 'KANSL3', 'KAT2A', 'KAT2B', 'KAT5', 'KAT6A', 'KAT6B', 'KAT7', 'KAT8', 'KDM1A', 'KDM1B', 'KDM2A', 'KDM2B', 'KDM3A', 'KDM3B', 'KDM4A', 'KDM4B', 'KDM4C', 'KDM4D', 'KDM4E', 'KDM5A', 'KDM5B', 'KDM5C', 'KDM5D', 'KDM6A', 'KDM6B', 'KDM7A', 'KDM8', 'KEAP1', 'KHDRBS1', 'KLF18', 'KMT2A', 'KMT2B', 'KMT2C', 'KMT2D', 'KMT2E', 'L3MBTL1', 'L3MBTL2', 'L3MBTL3', 'L3MBTL4', 'LAS1L', 'LBR', 'LEO1', 'LRWD1', 'MAGOH', 'MAP3K7', 'MAPKAPK3', 'MASTL', 'MAX', 'MAZ', 'MBD1', 'MBD2', 'MBD3', 'MBD4', 'MBD5', 'MBD6', 'MBIP', 'MBNL1', 'MBNL3', 'MBTD1', 'MCRS1', 'MDC1', 'MEAF6', 'MECP2', 'MEN1', 'METTL11B', 'METTL14', 'METTL16', 'METTL21A', 'METTL3', 'METTL4', 'MGA', 'MGEA5', 'MINA', 'MIS18A', 'MIS18BP1', 'MLLT1', 'MLLT10', 'MLLT6', 'MORF4L1', 'MORF4L2', 'MOV10', 'MPHOSPH8', 'MPND', 'MRGBP', 'MSH6', 'MSL1', 'MSL2', 'MSL3', 'MST1', 'MTA1', 'MTA2', 'MTA3', 'MTF2', 'MUM1', 'MYBBP1A', 'MYO1C', 'MYSM1', 'NAA60', 'NAP1L1', 'NAP1L2', 'NAP1L4', 'NASP', 'NAT10', 'NAT10', 'NBN', 'NCL', 'NCOA1', 'NCOA2', 'NCOA3', 'NCOA6', 'NCOR1', 'NCOR2', 'NEK6', 'NEK9', 'NFRKB', 'NFYB', 'NFYC', 'NIPBL', 'NOC2L', 'NPAS2', 'NPM1', 'NPM2', 'NSD1', 'NSL1', 'NSRP1', 'NSUN2', 'NSUN6', 'NTMT1', 'NUP98', 'OGT', 'OIP5', 'PADI1', 'PADI2', 'PADI3', 'PADI4', 'PAF1', 'PAGR1', 'PAK2', 'PARG', 'PARP1', 'PARP2', 'PARP3', 'PAXIP1', 'PBK', 'PBRM1', 'PCGF1', 'PCGF2', 'PCGF3', 'PCGF5', 'PCGF6', 'PCNA', 'PDP1', 'PELP1', 'PHC1', 'PHC2', 'PHC3', 'PHF1', 'PHF10', 'PHF12', 'PHF13', 'PHF14', 'PHF19', 'PHF2', 'PHF20', 'PHF20L1', 'PHF21A', 'PHF8', 'PHIP', 'PIWIL4', 'PKM', 'PKN1', 'POGZ', 'POLE3', 'PPARGC1A', 'PPM1G', 'PPP2CA', 'PPP4C', 'PPP4R2', 'PQBP1', 'PRDM1', 'PRDM11', 'PRDM12', 'PRDM13', 'PRDM14', 'PRDM16', 'PRDM2', 'PRDM4', 'PRDM5', 'PRDM6', 'PRDM7', 'PRDM8', 'PRDM9', 'PRKAA1', 'PRKAA2', 'PRKAB1', 'PRKAB2', 'PRKAG1', 'PRKAG2', 'PRKAG3', 'PRKCA', 'PRKCB', 'PRKCD', 'PRKDC', 'PRMT1', 'PRMT2', 'PRMT5', 'PRMT6', 'PRMT7', 'PRMT8', 'PRMT9', 'PRPF31', 'PRR14', 'PSIP1', 'PTBP1', 'PTBP1', 'PUF60', 'RAD51', 'RAD54B', 'RAD54L', 'RAD54L2', 'RAG1', 'RAG2', 'RAI1', 'RARA', 'RB1', 'RBBP4', 'RBBP5', 'RBBP7', 'RBFOX1', 'RBM11', 'RBM15', 'RBM15B', 'RBM17', 'RBM24', 'RBM25', 'RBM4', 'RBM5', 'RBM7', 'RBM8A', 'RBMY1A1', 'RBX1', 'RCC1', 'RCOR1', 'RCOR3', 'REST', 'RFOX1', 'RING1', 'RLIM', 'RMI1', 'RNF168', 'RNF2', 'RNF20', 'RNF40', 'RNF8', 'RNPS1', 'RPS6KA3', 'RPS6KA4', 'RPS6KA5', 'RPUSD3', 'RRP8', 'RSF1', 'RSRC1', 'RUVBL1', 'RUVBL2', 'RYBP', 'SAFB', 'SAP130', 'SAP18', 'SAP25', 'SAP30', 'SAP30L', 'SATB1', 'SATB2', 'SCMH1', 'SCML2', 'SCML4', 'SENP1', 'SENP3', 'SET', 'SETD1A', 'SETD1B', 'SETD2', 'SETD3', 'SETD5', 'SETD6', 'SETD7', 'SETD8', 'SETDB1', 'SETDB2', 'SETMAR', 'SF3B1', 'SF3B3', 'SFMBT1', 'SFMBT2', 'SFPQ', 'SFSWAP', 'SHPRH', 'SIN3A', 'SIN3B', 'SIRT1', 'SIRT2', 'SIRT6', 'SIRT7', 'SKP1', 'SLU7', 'SMARCA1', 'SMARCA2', 'SMARCA4', 'SMARCA5', 'SMARCAD1', 'SMARCAL1', 'SMARCB1', 'SMARCC1', 'SMARCC2', 'SMARCD1', 'SMARCD2', 'SMARCD3', 'SMARCE1', 'SMEK1', 'SMEK2', 'SMYD1', 'SMYD2', 'SMYD3', 'SMYD4', 'SNAI2', 'SP1', 'SP100', 'SP140', 'SPEN', 'SPOP', 'SRCAP', 'SRRM4', 'SRSF1', 'SRSF10', 'SRSF12', 'SRSF3', 'SRSF6', 'SS18L1', 'SS18L2', 'SSRP1', 'STK4', 'SUDS3', 'SUPT16H', 'SUPT3H', 'SUPT6H', 'SUPT7L', 'SUV39H1', 'SUV39H2', 'SUV420H1', 'SUV420H2', 'SUZ12', 'SYNCRIP', 'TADA1', 'TADA2A', 'TADA2B', 'TADA3', 'TAF1', 'TAF10', 'TAF12', 'TAF1L', 'TAF2', 'TAF3', 'TAF4', 'TAF5', 'TAF5L', 'TAF6', 'TAF6L', 'TAF7', 'TAF8', 'TAF9', 'TAF9B', 'TBL1XR1', 'TDG', 'TDRD3', 'TDRD7', 'TDRKH', 'TET1', 'TET2', 'TET3', 'TEX10', 'TFDP1', 'TFPT', 'THRAP3', 'TLE1', 'TLE2', 'TLE4', 'TLK1', 'TLK2', 'TNP1', 'TNP2', 'TONSL', 'TOP2A', 'TOP2B', 'TP53', 'TP53BP1', 'TRA2B', 'TRIM16', 'TRIM24', 'TRIM27', 'TRIM28', 'TRIM33', 'TRRAP', 'TRUB2', 'TSSK6', 'TTK', 'TYW5', 'U2AF2', 'UBE2A', 'UBE2B', 'UBE2D1', 'UBE2D3', 'UBE2E1', 'UBE2H', 'UBE2N', 'UBE2T', 'UBN1', 'UBR2', 'UBR5', 'UBR7', 'UCHL5', 'UHRF1', 'UHRF2', 'UIMC1', 'USP11', 'USP12', 'USP15', 'USP16', 'USP17L2', 'USP21', 'USP22', 'USP3', 'USP36', 'USP44', 'USP46', 'USP49', 'USP7', 'UTY', 'VDR', 'VIRMA', 'VPS72', 'VRK1', 'WAC', 'WDR5', 'WDR77', 'WDR82', 'WHSC1', 'WHSC1L1', 'WSB2', 'WTAP', 'YAF2', 'YEATS2', 'YEATS4', 'YTHDC1', 'YWHAB', 'YWHAE', 'YWHAZ', 'YY1', 'ZBTB16', 'ZBTB33', 'ZBTB7A', 'ZBTB7C', 'ZC3H13', 'ZCWPW1', 'ZFP57', 'ZGPAT', 'ZHX1', 'ZMYM2', 'ZMYM3', 'ZMYND11', 'ZMYND8', 'ZNF217', 'ZNF516', 'ZNF532', 'ZNF541', 'ZNF592', 'ZNF687', 'ZNF711', 'ZNHIT1', 'ZRANB3', 'ZZZ3'],
     'm6a_writers'      : ['METTL3', 'METTL14', 'METTL16', 'KIAA1429','RBM15', 'WTAP'],
     'm6a_erasers'      : ['FTO', 'ALKBH5'],
-    'm6a_readers'      : ['YTHS', 'EIF3', 'HNRNPC', 'HNRNPA2B1', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3'],
+    # 'm6a_readers'      : ['YTHS', 'EIF3', 'HNRNPC', 'HNRNPA2B1', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3'],
     'm6a_re_wr_er'     : ['METTL3', 'METTL14',  'KIAA1429','RBM15', 'WTAP', 'FTO', 'ALKBH5', 'YTHS', 'EIF3', 'HNRNPC', 'HNRNPA2B1', 'YTHDF1', 'YTHDF2', 'YTHDC1', 'YTHDC2', 'TYSND1', 'SND1', 'PRRC2A', 'LRPPRC', 'FMR1','FMR1NB', 'IGF2BP1', 'IGF2BP2', 'IGF2BP3'],
     'PRC2'             : ['EZH1', 'EZH2', 'EED', 'SUZ12', 'RBBP4', 'RBBP7', 'JARID2', 'PCGF1', 'PCGF2', 'RING1', 'BMI1'],
     'Freya'            : ['ALKBH5', 'CYP51A1', 'DHCR7', 'DHCR24', 'EBP', 'FDFT1', 'FDPS', 'FTO', 'GGPS1', 'HNRNPC', 'HSD17B7', 'IDI1', 'IGF2BP2', 'LDLR', 'LSS', 'METTL3', 'METTL14', 'MSMO1', 'MVD', 'MVK', 'NSDHL', 'PMVK', 'SC5D', 'SQLE', 'YTHDF1', 'YTHDF2'],
@@ -80,7 +80,12 @@ gene_sets = {
     'm6a_story'        : ['NFKB', 'IKZF3', 'IRF4', 'MTAP', 'MYC', 'FDFT1', 'BCL2', 'PTEN', 'ASB2', 'RARA', 'FTO', 'METTL3', 'ALKBH', 'YTHDF', 'HNRNP', 'HNRNPC', 'PTEN', 'SP1', 'CEBPA', 'DHCR7', 'HMGCS1', 'SOCS1', 'SOCS3', 'NOTCH1', 'MSI2', 'BRD4', ],
     'Cristina'         : ['KDM6B', 'SPI1', 'PU1', 'CD44', 'CEBPA', 'CEBPB', 'CEBPD', 'CEBPE', 'CEBPG', 'CEBPZ', 'LTF', 'TK1', 'DNMT1'],
     'Cristina_extra'   : ['XIST', 'MLL1', 'CHD4', 'PU1', 'CEBPA', 'CEBPB', 'LSD1', 'KDM6A', 'LTF', 'SMARCA4', 'ARID1A', 'CEBPD', 'HDAC2', 'MIR21', 'CD44', 'EP300', 'KDM5B', 'TET1', 'KDM6B', 'TET2', 'lncRNA', 'SMARCB1', 'SUZ12', 'DNMT1', 'KDM4A', 'RAD21', 'NIPBL', 'HDAC3', 'CTCF', 'TK1', 'KDM1A', 'CBP', 'BRG1', 'CEBPE', 'BAF47', 'KMT2A', 'p300', 'EZH2', 'EED', 'CEBPZ', 'CREBBP', 'DNMT3A', 'DNMT3B', 'HDAC1', 'TET3', 'SPI1', 'CEBPG', 'BRD4'],
-
+    'IGF2BP2_targets'  : ['CD6', 'STAT3', 'ATP6V1A', 'HMGA1', 'CCL20', 'MYC', 'GLUT1', 'NRAS', 'FEN1', 'EPHA2', 'SIRT1', 'SOX2', 'TNS1', 'CCND1', 'MEIS2', 'YAP1', 'SNPRD1', 'NOTCH1', 'SLC1A5', 'GPT2', 'LAMB2', 'GATA6', 'PDGFA', 'HK2', 'VEGFA', 'BCL2', 'NANOG', 'OCT4', 'ABCB1', 'DDX21', 'PRMT5'],
+    'Tibo'             : ["PSMG1", "PSMG2", "PSMG3", "PSMG4", "POMP", "PSMB8", "PSMB10", "PSMB9", "HSPB1", "PSMA4", "PSMA6", "PSMA5", "PSMD4", "PSME1", "PSME2", "PSMD10", "PSME3", "PSMF1", "RAD23A", "PSMB5", "ADRM1", "PSMC3", "PSMB3", "PSMD8", "PSMB6", "PSMA7", "PSMD13", "PSMA3", "PSMB1", "PSMA2", "PSMB7", "PSMA1", "PSMB4", "PSMC1", "PSMC2", "PSMD3", "PSMD7", "PSMB2", "VCP", "TXNL1", "UBQLN1", "PSMD9", "ZFAND2A", "PSMD14", "PSMD1", "RAD23B", "PSMC5", "PSMC4", "PSMD2", "UBR1", "PSMC6", "PSMD6", "PSMD5", "UBE3A", "USP14", "PSMD11", "PSME4", "PSMD12", "PSMA8", "UCHL5", "PAAF1", "UBE3C", "ECPAS", "PRICKLE1"],
+    'COSMIC_TALL'      : ['ABL1', 'AFF3', 'BCL11B', 'CCNC', 'CNOT3', 'DNM2', 'FBXW7', 'IRS4', 'KDM6A', 'LCK', 'LEF1', 'LMO1', 'LMO2', 'LYL1', 'NOTCH1', 'NUP214', 'OLIG2', 'PICALM', 'PTPRC', 'RAP1GDS1', 'RPL10', 'RPL5', 'RUNX1', 'SET', 'STIL', 'TAL2', 'TLX1', 'TLX3', 'TRA', 'TRB'],
+    'SPI1_TRRUST_mmus' : ['ACP5', 'AIF1', 'BCL2L11', 'CCL5', 'CD1D1', 'CSF1R', 'CSF1R', 'DCSTAMP', 'ELANE', 'ELF1', 'FCER1G', 'FES', 'FLT3', 'H2-AB1', 'IGH', 'IGHM', 'IGL', 'IL1B', 'IL7R', 'IL9', 'IRF8', 'ITGA2B', 'ITGB3', 'MED1', 'MEF2C', 'MMP13', 'MRC1', 'NCF1', 'NCF4', 'NFKB1', 'OPRM1', 'PIRB', 'PTGDS', 'PTGDS', 'PTPRC', 'PTPRO', 'SCN8A', 'TAL1', 'TAL2', 'TEC', 'TLR4', 'TNF'],
+    'SPI1_TRRUST_hsap' : ['ACP5', 'ALOX15', 'BCL6', 'BPI', 'BTK', 'CCL2', 'CCL5', 'CD163', 'CD22', 'CD40', 'CD68', 'CLEC4G', 'CSF1', 'CSF2RA', 'CSF3R', 'CSF3R', 'CTSG', 'CTSK', 'CTSS', 'CXCR1', 'CYBB', 'CYBB', 'DAPK2', 'ELANE', 'ERAP2', 'FCER1A', 'FCER1A', 'FCGR1A', 'FES', 'FLI1', 'GATA1', 'GATA1', 'HCK', 'IFIT3', 'JCHAIN', 'IL12B', 'IL18', 'IL1B', 'IL1B', 'IL5', 'ITGA2B', 'ITGAM', 'ITGAX', 'ITGAX', 'ITGB2', 'ITGB2', 'MACROD1', 'MAPK1', 'MME', 'MNDA', 'MS4A1', 'MSR1', 'NCF2', 'NCF2', 'NSFL1C', 'P2RY10', 'PARG', 'PEBP1', 'PRG2', 'PRTN3', 'PTGIR', 'RNASE2', 'SCARB1', 'SCARB2', 'STAT3', 'TLR4', 'TLR4', 'TNF', 'TNFRSF11A', 'WAS', 'ZNF300'],
+    'Polonen_SPI1_ass' : ['CD68', 'LYZ', 'SPI1', 'CSF3R', 'CYBB', 'TYROBP', 'PLEK', 'CD74', 'SIRPA', 'S100A9', 'NCF2', 'HLA-DRA', 'S100A8', 'THBS1', 'VCAN', 'SERPINA1', 'LILRA2', 'MPO', 'SRGN', 'LILRB2', 'CEBPD', 'TREM1', 'ITGAX', 'FCAR', 'FCN1', 'FCGR2A', 'CEBPA', 'MPEG1', 'AC090559.1', 'MNDA', 'LYN', 'RAB31', 'CFD', 'HLA-DPA1', 'HCK', 'IRAK3', 'LILRA5', 'ITGAM', 'AQP9', 'CTSZ', 'LRRC25', 'LTF', 'CLEC7A', 'IFI30', 'CSF1R', 'PLBD1', 'FPR1', 'HLA-DRB1', 'RBM47', 'S100A12', 'G0S2', 'NFAM1', 'TGFBI', 'TLR4', 'MYO1F', 'HLA-DPB1', 'IL6R', 'C5AR1', 'MS4A6A', 'TLR2', 'TNFRSF1B', 'CD300E', 'CSTA', 'LRP1', 'PTAFR', 'CHST15', 'SEMA6B', 'CD14', 'SIRPB1', 'HK3', 'CD86', 'CLEC12A', 'ZBTB7B', 'ZNF516', 'IL1RN', 'THBD', 'CD300LF', 'SLC11A1', 'FCER1G', 'ANPEP', 'PRAM1', 'HMOX1', 'ELANE', 'SLC7A7', 'CSF2RB', 'NOD2', 'NCF4', 'CXCL8', 'CCR1', 'ICAM1', 'C19orf38', 'CXCL16', 'LRRK1', 'LILRB4', 'FGL2', 'THEMIS2', 'AC005840.1', 'PADI2', 'SIGLEC14', 'AHR', 'IL13RA1', 'NLRP3', 'TYMP', 'PYGL', 'CD300LB', 'FAM49A', 'SAMHD1', 'TRIB1', 'LILRB3', 'TLR8', 'OGFRL1', 'DEFA3', 'CTSS', 'ALDH3B1', 'RIPK2', 'BASP1', 'LRRK2', 'METRNL', 'ADM', 'DEFA1', 'FBP1', 'IGKC', 'BTK', 'SERPINB2', 'PDE4B', 'CD33', 'MEFV', 'PPBP', 'DEFA1B', 'TNFSF13', 'LGALS1', 'LILRA1', 'P2RY13', 'ALOX5', 'SIGLEC5', 'ACSL1', 'CIITA', 'MMP9', 'UPP1', 'CYTIP', 'GPR183', 'NEK6', 'LILRA6', 'OSCAR', 'LILRB1', 'HLX', 'PLXNB2', 'CD163', 'PHACTR1', 'NCF1', 'APP', 'EPB41L3', 'RNASE2', 'FGD2', 'AZU1', 'RASGRP4', 'GSN', 'STAB1', 'CYP1B1', 'CSF2RA.1', 'WDFY4', 'CD302', 'CST3', 'LGALS3', 'CDA', 'SERPINB6', 'NCF1C', 'RMRP', 'DYSF', 'NAPSB', 'NID1', 'COTL1', 'SMIM25', 'TMEM176B', 'IL10RA', 'PRTN3', 'SLC15A3', 'SLCO3A1', 'ATP8B4', 'CD93', 'IRF5', 'APOBEC3A', 'IL1B', 'LY86', 'ADAM15', 'FCGR3A', 'PDK4', 'BCL3', 'STX11', 'MS4A7', 'SECTM1', 'LCN2', 'IRF4', 'VDR', 'BPI', 'KLF4', 'CFP', 'GASK1B', 'LFNG', 'PIK3AP1', 'HLA-DMB', 'FOSL2', 'EREG', 'IGHG1', 'ST14', 'SULF2', 'C3AR1', 'HLA-DQB1', 'TMEM176A', 'LPCAT2', 'PTPRJ', 'ENTPD1', 'TENT5A', 'SNTB1', 'NRGN', 'CD180', 'CD36', 'MMP8', 'LRG1', 'HLA-DMA', 'IGFBP7', 'FES', 'PLD4', 'TFEC', 'KLF9', 'JDP2', 'ODF3B', 'SNX9', 'P2RY2', 'GRN', 'ELL2', '1-Mar', 'SIGLEC10', 'MEF2C', 'AC020916.1', 'ACPP', 'SPOPL', 'PREX1', 'HCAR3', 'PTGES', 'IGHA1', 'NACC2', 'SIRPB2', 'LMNA', 'STX3', 'TLR1', 'MMP25', 'KCNE3', 'PARVB', 'PADI4', 'NLRP12', 'VSIR', 'SCPEP1', 'PTGS1', 'QPCT', 'ADAMTSL4', 'TMCC3', 'MTSS1', 'SIGLEC9', 'KLF11', 'KCNQ1', 'JAML', 'MYADM', 'NUAK2', 'S100A11', 'CES1', 'GPR132', 'MYOF', 'PROK2', 'HLA-DQA1', 'CEACAM8', 'ZNF467', 'S100A6', 'PLXDC2', 'TES', 'FFAR2', 'C1orf162', 'FCGR1A', 'TNFSF13B', 'KYNU', 'ADAM28', 'ARHGEF40', 'LRP3', 'FGD4', 'MS4A3', 'SLC24A4', 'NCF1B', 'KIF13A', 'PTGER2', 'OLR1', 'S100A4', 'UNC93B1', 'HAVCR2', 'HP', 'B3GNT5', 'PTGS2', 'CAVIN2', 'MGST1', 'GAPT', 'MARCKS', 'TNFRSF10D', 'HRH2', 'MGAM', 'F5', 'F13A1', 'STARD8', 'HLA-F', 'IRAK2', 'MTMR11', 'PLAUR', 'ZEB2', 'IQSEC2', 'CD101', 'IGLC2', 'ASGR2', 'MAP3K5', 'AC139495.3', 'CTSL', 'MAP3K8', 'GBP2', 'KLF3'],
     'Master'           : [
         #PRC1/2
         'RING1', 'BMI1', 'PCGF1', 'PCGF2', 'EED', 'SUZ12', 'EZH1', 'EZH2', 'RBBP4', 'RBBP7', 'JARID2',
@@ -109,11 +114,11 @@ gene_sets = {
         'SRSF11', 'NUP85', 'PSMD4', 'NUP85', 'UPF1', 'KDM6B', 'IDH2','INTS3','SPI1', 'TCF7','DHCR7','HMGCS1','WT1','FLT3','KIT','MDA5','PKR','NCOR2''FMR1','MATR3','EP300','LMO1','IRF4','KDM4C',
         'JQ1', 'MXD1', 'MTAP', 'WTAP', 'CHEK1', 'RBM39', 'CCR9', 'CCR7', 'CD19', 'CDK6', 'BRD1', 'BRD2', 'BRD3', 'BRD4', 'APCDD1', "FOXO1", 'PRPF39','MSI2', 'NFKIA','SERPINB1','CD69','CCL25', 'DCAF15',
         'TNFSF9', 'TNFRSF9', 'CD38', 'TRBC1', 'TRBC2', 'ZBTB7B', 'RUNX3','ZBP1', 'FBXW7', 'KMT2D', 'IGF2','TAL1','PTEN', 'IDH1','PIK3CA','PIK3R1','STAT5B','JAK1','JAK2','DNM2','IL7R','NGN3','CASC3', 'IDO',
-        'MEF2C', 'TCF3','PBX1','HLF','ITGAM','AURKB','TLX3','STAG2','SOX11','XBP1','ID1','ID3','XBP1','CD34','LMO2', 'JAK3', 'RIGI','ADAR','ADARB1','ADARB2','IGHV','FOXM1','AURKA',
+        'MEF2C', 'TCF3','PBX1','HLF','ITGAM','AURKB','TLX3','STAG2','SOX11','XBP1','ID1','ID3','XBP1','CD34','LMO2', 'JAK3', 'RIGI','ADAR','ADARB1','ADARB2','IGHV','FOXM1','AURKA', 'BCL2', 'FOXP3',
         'RELA','TERT','ARNT','HDAC1','HDAC2','HDAC6','HDAC10','NPM1','KDM1B'
         ],
-    'Tibo' : ["PSMG1", "PSMG2", "PSMG3", "PSMG4", "POMP", "PSMB8", "PSMB10", "PSMB9", "HSPB1", "PSMA4", "PSMA6", "PSMA5", "PSMD4", "PSME1", "PSME2", "PSMD10", "PSME3", "PSMF1", "RAD23A", "PSMB5", "ADRM1", "PSMC3", "PSMB3", "PSMD8", "PSMB6", "PSMA7", "PSMD13", "PSMA3", "PSMB1", "PSMA2", "PSMB7", "PSMA1", "PSMB4", "PSMC1", "PSMC2", "PSMD3", "PSMD7", "PSMB2", "VCP", "TXNL1", "UBQLN1", "PSMD9", "ZFAND2A", "PSMD14", "PSMD1", "RAD23B", "PSMC5", "PSMC4", "PSMD2", "UBR1", "PSMC6", "PSMD6", "PSMD5", "UBE3A", "USP14", "PSMD11", "PSME4", "PSMD12", "PSMA8", "UCHL5", "PAAF1", "UBE3C", "ECPAS", "PRICKLE1"]
 	}
+
 
 # A set of genes is selected based on the string used as input.
 # First, the string is tested in the custom set of gene sets in gene_sets dictionary above.
@@ -161,6 +166,7 @@ def KTC_GetGeneSet(name_gene_set, db_version='2024.1.Hs'):
             print(f'\n -- KTC_GetGeneSet : Gene set: {name_gene_set} was not a list of genes, was not found in gene_sets, or using Msigdb. Defaulting to interpreting {name_gene_set} as a set with a single gene\n')
             gene_set = [name_gene_set.upper()]
     return gene_set
+
 
 #%% ===========================================================================
 # KTC_orthologue
@@ -759,10 +765,195 @@ def KTC_plot_transcript_splicing(gtf_file, rmats_file, event_id, splicing_event_
     plt.tight_layout()
     plt.show()
 
-#%%
+#%% =============================================================================
+# 
+# =============================================================================
 def KTC_make_list(not_list):
     # Split by lines, strip whitespace, and remove empty entries
     lines = [line.strip() for line in not_list.strip().splitlines() if line.strip()]
     # Return as list of strings
     return lines
+
+print(KTC_make_list('''MYC
+                    MYB'''))
+
+#%% =============================================================================
+# 
+# =============================================================================
+
+# =========================
+# KTC_ncbi_gene_scraper
+# =========================
+from typing import List, Union, Optional
+import time
+import pandas as pd
+
+try:
+    from Bio import Entrez
+except Exception as e:
+    raise ImportError("Biopython is required. Install with: pip install biopython") from e
+
+
+def KTC_ncbi_gene_scraper(
+    genes: Union[str, List[str]],
+    email: str = "kasperthorhauge.christensen@ugent.be",
+    organism: str = "Homo sapiens",
+    print_summaries: bool = True,
+    sleep_seconds: float = 0.4,
+) -> pd.DataFrame:
+    """
+    Query NCBI Gene (Entrez) for summaries and metadata.
+
+    Parameters
+    ----------
+    genes : str | list[str]
+        Either a multiline string with one gene per line, or a list of gene symbols.
+    email : str
+        Email required by NCBI usage policy.
+    organism : str
+        Organism filter for the query (default Homo sapiens).
+    print_summaries : bool
+        If True, prints 'SYMBOL\tSummary' lines while fetching.
+    sleep_seconds : float
+        Pause between requests to respect NCBI rate limits.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns: ['query', 'gene_id', 'symbol', 'full_name', 'description',
+                  'summary', 'chromosome', 'map_location', 'other_aliases', 'status', 'organism']
+    """
+
+    # Configure Entrez
+    Entrez.email = email
+    Entrez.tool = "KTC_functions_ncbi_gene_scraper"
+
+    def _normalize_gene_list(x: Union[str, List[str]]) -> List[str]:
+        if isinstance(x, str):
+            raw = [g.strip() for g in x.splitlines()]
+        else:
+            raw = [str(g).strip() for g in x]
+        # keep order, drop empties, drop 'nan' literals, uppercase, deduplicate preserving order
+        seen = set()
+        clean = []
+        for g in raw:
+            if not g or g.lower() == "nan":
+                continue
+            g_up = g.upper()
+            if g_up not in seen:
+                seen.add(g_up)
+                clean.append(g_up)
+        return clean
+
+    def _safe_get(d: dict, key: str, default: Optional[str] = "") -> str:
+        try:
+            return d.get(key, default) or default
+        except Exception:
+            return default
+
+    gene_list = _normalize_gene_list(genes)
+    records = []
+
+    for symbol in gene_list:
+        # Search for the gene ID
+        term = f"{symbol}[Gene] AND {organism}[orgn]"
+        try:
+            with Entrez.esearch(db="gene", term=term, retmax=1) as handle:
+                search = Entrez.read(handle)
+        except Exception as e:
+            # Record a failed lookup line and continue
+            records.append({
+                "query": symbol,
+                "gene_id": "",
+                "symbol": "",
+                "full_name": "",
+                "description": "",
+                "summary": f"ERROR during esearch: {e}",
+                "chromosome": "",
+                "map_location": "",
+                "other_aliases": "",
+                "status": "",
+                "organism": organism,
+            })
+            time.sleep(sleep_seconds)
+            continue
+
+        idlist = search.get("IdList", [])
+        if not idlist:
+            msg = f"No gene found for {symbol} in {organism}"
+            if print_summaries:
+                print(f"{symbol}\t{msg}")
+                print()
+            records.append({
+                "query": symbol,
+                "gene_id": "",
+                "symbol": "",
+                "full_name": "",
+                "description": "",
+                "summary": msg,
+                "chromosome": "",
+                "map_location": "",
+                "other_aliases": "",
+                "status": "",
+                "organism": organism,
+            })
+            time.sleep(sleep_seconds)
+            continue
+
+        gene_id = idlist[0]
+
+        # Fetch summary for that ID
+        try:
+            with Entrez.esummary(db="gene", id=gene_id) as handle:
+                esum = Entrez.read(handle)
+            doc = esum["DocumentSummarySet"]["DocumentSummary"][0]
+        except Exception as e:
+            records.append({
+                "query": symbol,
+                "gene_id": gene_id,
+                "symbol": "",
+                "full_name": "",
+                "description": "",
+                "summary": f"ERROR during esummary: {e}",
+                "chromosome": "",
+                "map_location": "",
+                "other_aliases": "",
+                "status": "",
+                "organism": organism,
+            })
+            time.sleep(sleep_seconds)
+            continue
+
+        # Extract fields safely
+        official_symbol = _safe_get(doc, "NomenclatureSymbol") or _safe_get(doc, "Name")
+        full_name       = _safe_get(doc, "NomenclatureName")
+        description     = _safe_get(doc, "Description")
+        summary_text    = _safe_get(doc, "Summary")
+        # Trim any trailing bracketed references for your preferred printout
+        printable_sum   = summary_text.split("[")[0].strip() if summary_text else ""
+
+        if print_summaries:
+            print(f"{symbol}\t{printable_sum if printable_sum else 'No summary available'}")
+            print()
+
+        records.append({
+            "query": symbol,
+            "gene_id": gene_id,
+            "symbol": official_symbol,
+            "full_name": full_name,
+            "description": description,
+            "summary": summary_text,
+            "chromosome": _safe_get(doc, "Chromosome"),
+            "map_location": _safe_get(doc, "MapLocation"),
+            "other_aliases": _safe_get(doc, "OtherAliases"),
+            "status": _safe_get(doc, "Status"),
+            "organism": organism,
+        })
+
+        time.sleep(sleep_seconds)
+
+    df = pd.DataFrame.from_records(records)
+    # If a query matched, prefer the NCBI official symbol; otherwise keep the query
+    df["symbol"] = df["symbol"].mask(df["symbol"].eq(""), df["query"])
+    return df
 
