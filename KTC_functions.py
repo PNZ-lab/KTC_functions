@@ -86,6 +86,7 @@ gene_sets = {
     'SPI1_TRRUST_mmus' : ['ACP5', 'AIF1', 'BCL2L11', 'CCL5', 'CD1D1', 'CSF1R', 'CSF1R', 'DCSTAMP', 'ELANE', 'ELF1', 'FCER1G', 'FES', 'FLT3', 'H2-AB1', 'IGH', 'IGHM', 'IGL', 'IL1B', 'IL7R', 'IL9', 'IRF8', 'ITGA2B', 'ITGB3', 'MED1', 'MEF2C', 'MMP13', 'MRC1', 'NCF1', 'NCF4', 'NFKB1', 'OPRM1', 'PIRB', 'PTGDS', 'PTGDS', 'PTPRC', 'PTPRO', 'SCN8A', 'TAL1', 'TAL2', 'TEC', 'TLR4', 'TNF'],
     'SPI1_TRRUST_hsap' : ['ACP5', 'ALOX15', 'BCL6', 'BPI', 'BTK', 'CCL2', 'CCL5', 'CD163', 'CD22', 'CD40', 'CD68', 'CLEC4G', 'CSF1', 'CSF2RA', 'CSF3R', 'CSF3R', 'CTSG', 'CTSK', 'CTSS', 'CXCR1', 'CYBB', 'CYBB', 'DAPK2', 'ELANE', 'ERAP2', 'FCER1A', 'FCER1A', 'FCGR1A', 'FES', 'FLI1', 'GATA1', 'GATA1', 'HCK', 'IFIT3', 'JCHAIN', 'IL12B', 'IL18', 'IL1B', 'IL1B', 'IL5', 'ITGA2B', 'ITGAM', 'ITGAX', 'ITGAX', 'ITGB2', 'ITGB2', 'MACROD1', 'MAPK1', 'MME', 'MNDA', 'MS4A1', 'MSR1', 'NCF2', 'NCF2', 'NSFL1C', 'P2RY10', 'PARG', 'PEBP1', 'PRG2', 'PRTN3', 'PTGIR', 'RNASE2', 'SCARB1', 'SCARB2', 'STAT3', 'TLR4', 'TLR4', 'TNF', 'TNFRSF11A', 'WAS', 'ZNF300'],
     'Polonen_SPI1_ass' : ['CD68', 'LYZ', 'SPI1', 'CSF3R', 'CYBB', 'TYROBP', 'PLEK', 'CD74', 'SIRPA', 'S100A9', 'NCF2', 'HLA-DRA', 'S100A8', 'THBS1', 'VCAN', 'SERPINA1', 'LILRA2', 'MPO', 'SRGN', 'LILRB2', 'CEBPD', 'TREM1', 'ITGAX', 'FCAR', 'FCN1', 'FCGR2A', 'CEBPA', 'MPEG1', 'AC090559.1', 'MNDA', 'LYN', 'RAB31', 'CFD', 'HLA-DPA1', 'HCK', 'IRAK3', 'LILRA5', 'ITGAM', 'AQP9', 'CTSZ', 'LRRC25', 'LTF', 'CLEC7A', 'IFI30', 'CSF1R', 'PLBD1', 'FPR1', 'HLA-DRB1', 'RBM47', 'S100A12', 'G0S2', 'NFAM1', 'TGFBI', 'TLR4', 'MYO1F', 'HLA-DPB1', 'IL6R', 'C5AR1', 'MS4A6A', 'TLR2', 'TNFRSF1B', 'CD300E', 'CSTA', 'LRP1', 'PTAFR', 'CHST15', 'SEMA6B', 'CD14', 'SIRPB1', 'HK3', 'CD86', 'CLEC12A', 'ZBTB7B', 'ZNF516', 'IL1RN', 'THBD', 'CD300LF', 'SLC11A1', 'FCER1G', 'ANPEP', 'PRAM1', 'HMOX1', 'ELANE', 'SLC7A7', 'CSF2RB', 'NOD2', 'NCF4', 'CXCL8', 'CCR1', 'ICAM1', 'C19orf38', 'CXCL16', 'LRRK1', 'LILRB4', 'FGL2', 'THEMIS2', 'AC005840.1', 'PADI2', 'SIGLEC14', 'AHR', 'IL13RA1', 'NLRP3', 'TYMP', 'PYGL', 'CD300LB', 'FAM49A', 'SAMHD1', 'TRIB1', 'LILRB3', 'TLR8', 'OGFRL1', 'DEFA3', 'CTSS', 'ALDH3B1', 'RIPK2', 'BASP1', 'LRRK2', 'METRNL', 'ADM', 'DEFA1', 'FBP1', 'IGKC', 'BTK', 'SERPINB2', 'PDE4B', 'CD33', 'MEFV', 'PPBP', 'DEFA1B', 'TNFSF13', 'LGALS1', 'LILRA1', 'P2RY13', 'ALOX5', 'SIGLEC5', 'ACSL1', 'CIITA', 'MMP9', 'UPP1', 'CYTIP', 'GPR183', 'NEK6', 'LILRA6', 'OSCAR', 'LILRB1', 'HLX', 'PLXNB2', 'CD163', 'PHACTR1', 'NCF1', 'APP', 'EPB41L3', 'RNASE2', 'FGD2', 'AZU1', 'RASGRP4', 'GSN', 'STAB1', 'CYP1B1', 'CSF2RA.1', 'WDFY4', 'CD302', 'CST3', 'LGALS3', 'CDA', 'SERPINB6', 'NCF1C', 'RMRP', 'DYSF', 'NAPSB', 'NID1', 'COTL1', 'SMIM25', 'TMEM176B', 'IL10RA', 'PRTN3', 'SLC15A3', 'SLCO3A1', 'ATP8B4', 'CD93', 'IRF5', 'APOBEC3A', 'IL1B', 'LY86', 'ADAM15', 'FCGR3A', 'PDK4', 'BCL3', 'STX11', 'MS4A7', 'SECTM1', 'LCN2', 'IRF4', 'VDR', 'BPI', 'KLF4', 'CFP', 'GASK1B', 'LFNG', 'PIK3AP1', 'HLA-DMB', 'FOSL2', 'EREG', 'IGHG1', 'ST14', 'SULF2', 'C3AR1', 'HLA-DQB1', 'TMEM176A', 'LPCAT2', 'PTPRJ', 'ENTPD1', 'TENT5A', 'SNTB1', 'NRGN', 'CD180', 'CD36', 'MMP8', 'LRG1', 'HLA-DMA', 'IGFBP7', 'FES', 'PLD4', 'TFEC', 'KLF9', 'JDP2', 'ODF3B', 'SNX9', 'P2RY2', 'GRN', 'ELL2', '1-Mar', 'SIGLEC10', 'MEF2C', 'AC020916.1', 'ACPP', 'SPOPL', 'PREX1', 'HCAR3', 'PTGES', 'IGHA1', 'NACC2', 'SIRPB2', 'LMNA', 'STX3', 'TLR1', 'MMP25', 'KCNE3', 'PARVB', 'PADI4', 'NLRP12', 'VSIR', 'SCPEP1', 'PTGS1', 'QPCT', 'ADAMTSL4', 'TMCC3', 'MTSS1', 'SIGLEC9', 'KLF11', 'KCNQ1', 'JAML', 'MYADM', 'NUAK2', 'S100A11', 'CES1', 'GPR132', 'MYOF', 'PROK2', 'HLA-DQA1', 'CEACAM8', 'ZNF467', 'S100A6', 'PLXDC2', 'TES', 'FFAR2', 'C1orf162', 'FCGR1A', 'TNFSF13B', 'KYNU', 'ADAM28', 'ARHGEF40', 'LRP3', 'FGD4', 'MS4A3', 'SLC24A4', 'NCF1B', 'KIF13A', 'PTGER2', 'OLR1', 'S100A4', 'UNC93B1', 'HAVCR2', 'HP', 'B3GNT5', 'PTGS2', 'CAVIN2', 'MGST1', 'GAPT', 'MARCKS', 'TNFRSF10D', 'HRH2', 'MGAM', 'F5', 'F13A1', 'STARD8', 'HLA-F', 'IRAK2', 'MTMR11', 'PLAUR', 'ZEB2', 'IQSEC2', 'CD101', 'IGLC2', 'ASGR2', 'MAP3K5', 'AC139495.3', 'CTSL', 'MAP3K8', 'GBP2', 'KLF3'],
+    'SG'               : ['MEN1', 'KMT2A', 'HOXA9', 'NPM1', 'MEIS1', 'LMO2', 'PTEN', 'CD2', 'LCK', 'EZH2', 'SUZ12', 'EED', 'LMO2'],
     'Master'           : [
         #PRC1/2
         'RING1', 'BMI1', 'PCGF1', 'PCGF2', 'EED', 'SUZ12', 'EZH1', 'EZH2', 'RBBP4', 'RBBP7', 'JARID2',
@@ -382,39 +383,49 @@ def KTC_splice_map(gtf_file, rmats_file, event_id, splicing_event_type):
 
 def KTC_PlotVolcano(
     df,
-    l2fc_col,
-    padj_col,
+    l2fc_col='log2FoldChange',
+    padj_col='padj',
     label_col=None,
     padj_thresh=0.05,
     l2fc_thresh=1.0,
-    top_n_labels=10,
+    top_n=10,
     highlight_genes=None,
+    label_highlight=True,   # 👈 NEW
     title="Volcano Plot",
     figsize=(8, 6),
     dpi=200,
     alpha=0.7,
     point_size=20,
     show_plot=True,
-    save_path=None
+    save_path=None,
+    ax=None,
+    x_limits=None
 ):
     df = df.copy()
 
     # Ensure numeric
     df[l2fc_col] = pd.to_numeric(df[l2fc_col], errors="coerce")
     df[padj_col] = pd.to_numeric(df[padj_col], errors="coerce")
-    df["-log10(padj)"] = -np.log10(df[padj_col])
+
+    # Guard against zeros / negatives / NaNs in padj for -log10
+    df["-log10(padj)"] = -np.log10(df[padj_col].clip(lower=np.finfo(float).tiny))
 
     # Default significance logic
     df["significant"] = (df[padj_col] < padj_thresh) & (df[l2fc_col].abs() > l2fc_thresh)
 
-    # Override coloring if specific genes are to be highlighted
+    # Highlight logic
     if highlight_genes is not None and label_col:
         df["highlight"] = df[label_col].isin(highlight_genes)
     else:
         df["highlight"] = df["significant"]
 
-    # Plotting
-    plt.figure(figsize=figsize, dpi=dpi)
+    # Create axis if needed
+    created_fig = False
+    if ax is None:
+        fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
+        created_fig = True
+    else:
+        fig = ax.figure
 
     # Base (non-highlight) points
     base_df = df[~df["highlight"]]
@@ -425,10 +436,11 @@ def KTC_PlotVolcano(
         color="lightgrey",
         alpha=alpha,
         s=point_size,
-        edgecolor=None
+        edgecolor=None,
+        ax=ax
     )
 
-    # Highlighted points (if any)
+    # Highlighted points
     highlight_df = df[df["highlight"]]
     if not highlight_df.empty:
         sns.scatterplot(
@@ -439,52 +451,85 @@ def KTC_PlotVolcano(
             alpha=1,
             s=point_size * 1.2,
             edgecolor="black",
-            linewidth=0.5
+            linewidth=0.5,
+            ax=ax
         )
+
+    if x_limits is not None:
+        ax.set_xlim(x_limits)
 
     # Labels
     texts = []
-    if label_col and not highlight_df.empty:
-        if highlight_genes is not None:
-            label_df = highlight_df  # Label only highlighted genes
+    if label_col and not df.empty:
+    
+        if highlight_genes is not None and not highlight_df.empty:
+    
+            if label_highlight:
+                label_df = highlight_df
+            else:
+                label_df = pd.DataFrame()  # 👈 no labels
+    
+        elif top_n > 0:
+            sig_df = df[df["significant"]].copy()
+            if not sig_df.empty:
+                label_df = sig_df.loc[sig_df[l2fc_col].abs().nlargest(top_n).index]
+            else:
+                label_df = pd.DataFrame()
+    
         else:
-            label_df = highlight_df.nlargest(top_n_labels, "-log10(padj)")
+            label_df = pd.DataFrame()
+    
         for _, row in label_df.iterrows():
             texts.append(
-                plt.text(
+                ax.text(
                     row[l2fc_col],
                     row["-log10(padj)"],
                     str(row[label_col]),
                     fontsize=8
                 )
             )
-        adjust_text(
-            texts,
-            arrowprops=dict(arrowstyle="-", color='gray', lw=0.5),
-            only_move={'points': 'y', 'text': 'y'}
-        )
+    
+        if texts:
+            adjust_text(
+                texts,
+                ax=ax,
+                arrowprops=dict(arrowstyle="-", color="gray", lw=0.5),
+            )
 
     # Threshold lines
-    plt.axhline(-np.log10(padj_thresh), color='black', linestyle='--', lw=1)
-    plt.axvline(-l2fc_thresh, color='black', linestyle='--', lw=1)
-    plt.axvline(l2fc_thresh, color='black', linestyle='--', lw=1)
+    ax.axhline(-np.log10(padj_thresh), color='black', linestyle='--', lw=1)
+    ax.axvline(-l2fc_thresh, color='black', linestyle='--', lw=1)
+    ax.axvline(l2fc_thresh, color='black', linestyle='--', lw=1)
 
     # Final formatting
-    plt.title(title)
-    plt.xlabel("log2 Fold Change")
-    plt.ylabel("-log10 Adjusted p-value")
-    sns.despine()
+    ax.set_title(title)
+    ax.set_xlabel("log2 Fold Change")
+    ax.set_ylabel("-log10 Adjusted p-value")
+    sns.despine(ax=ax)
 
-    if save_path:
-        plt.savefig(save_path, bbox_inches="tight")
-    if show_plot:
-        plt.show()
-    else:
-        plt.close()
+    # Save/show only if we created the figure
+    if created_fig:
+        if save_path:
+            fig.savefig(save_path, bbox_inches="tight")
+        if show_plot:
+            plt.show()
+        else:
+            plt.close(fig)
+
+    return ax
+
 
 #%% ===========================================================================
 # 
 # =============================================================================
+
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import gseapy as gp
 
 
 def KTC_multi_enrichment_plot(
@@ -496,10 +541,11 @@ def KTC_multi_enrichment_plot(
         "KEGG_2019_Human",
         "ChEA_2016",
         "MSigDB_Hallmark_2020",
-        'Reactome_2022'
+        'Reactome_2022',
+        'ARCHS4_Tissues'
     ],
     organism="human",
-    top_n=5,
+    top_n=3,
     show_all_significant=False,
     figsize=(12, 8),
     out_dir=None,
@@ -508,11 +554,17 @@ def KTC_multi_enrichment_plot(
     filename_suffix='',
     palette='Set2',
     significant_only=True,
-    filter_term_keywords=None,  #List of items within e.g. MSigDB_Hallmark_2020 to get info for
-    show_legend=True
+    filter_term_keywords=None,
+    show_legend=True,
+    padj_cutoff=0.05,
+    sort_by="gene_ratio" 
 ):
     if not isinstance(gene_list, list) or not gene_list:
         raise ValueError("gene_list must be a non-empty list of gene symbols.")
+
+    # Clean input list
+    gene_list = sorted({g.strip().upper() for g in gene_list if isinstance(g, str) and g.strip()})
+    N = len(gene_list)
 
     print(f"\n -- Performing batch enrichment for {len(gene_sets)} gene sets...")
 
@@ -520,7 +572,7 @@ def KTC_multi_enrichment_plot(
         enr = gp.enrichr(
             gene_list=gene_list,
             organism=organism,
-            gene_sets=gene_sets,  # Batch request
+            gene_sets=gene_sets,
             no_plot=True,
             outdir=None
         )
@@ -529,16 +581,14 @@ def KTC_multi_enrichment_plot(
         return pd.DataFrame()
 
     if enr.results is None or enr.results.empty:
-        print("⚠No enrichment results found.")
+        print("⚠ No enrichment results found.")
         return pd.DataFrame()
 
-    # Ensure 'Gene_set' column exists
     if 'Gene_set' not in enr.results.columns:
         enr.results['Gene_set'] = enr.results.index.get_level_values(0)
 
     all_results = []
 
-    # Loop through gene sets to filter and collect significant results
     for gs in gene_sets:
         df = enr.results[enr.results['Gene_set'] == gs].copy()
 
@@ -547,87 +597,145 @@ def KTC_multi_enrichment_plot(
             continue
 
         if significant_only:
-            df = df[df["Adjusted P-value"] < 0.05]
+            df = df[df["Adjusted P-value"] < padj_cutoff]
             if df.empty:
-                print(f"  [INFO] No significant terms (adj p < 0.05) for {gs}, skipping.")
+                print(f"  [INFO] No significant terms (adj p < {padj_cutoff}) for {gs}, skipping.")
                 continue
 
-        # Sort and decide how many terms to display
         df = df.sort_values("Adjusted P-value")
         if not show_all_significant:
             df = df.head(top_n)
 
-        df["-log10(Adjusted p-value)"] = -np.log10(df["Adjusted P-value"])
         all_results.append(df)
 
     if not all_results:
         print("No enrichment results to display after filtering.")
         return pd.DataFrame()
 
-    # Combine results for plotting
     combined_df = pd.concat(all_results, ignore_index=True)
-     
-    # Apply keyword filtering if requested
+
+    # Optional keyword filtering
     if filter_term_keywords is not None:
-        regex_pattern = '|'.join(filter_term_keywords)
+        import re
+        regex_pattern = "|".join(map(re.escape, filter_term_keywords))
         combined_df = combined_df[combined_df["Term"].str.contains(regex_pattern, case=False, na=False)]
-    
         if combined_df.empty:
             print(f"No terms matched the filter keywords: {filter_term_keywords}")
             return pd.DataFrame()
-        else:
-            print(f"Filtered terms matching keywords: {filter_term_keywords}")
-    
-        # 🔥 RE-APPLY SIGNIFICANCE FILTER AFTER KEYWORD FILTERING
+
         if significant_only:
-            combined_df = combined_df[combined_df["Adjusted P-value"] < 0.05]
+            combined_df = combined_df[combined_df["Adjusted P-value"] < padj_cutoff]
             if combined_df.empty:
-                print(f"No significant terms remain after keyword filtering.")
+                print("No significant terms remain after keyword filtering.")
                 return pd.DataFrame()
-     
-    # Sort for nicer plotting
-    combined_df["Term"] = combined_df["Term"].str.slice(0, 60)
-    combined_df.sort_values("-log10(Adjusted p-value)", ascending=False, inplace=True)
+
+    # Compute effect size from Overlap like "12/187"
+    overlap = combined_df["Overlap"].astype(str).str.split("/", expand=True)
+    combined_df["k_overlap"] = pd.to_numeric(overlap[0], errors="coerce")
+    combined_df["K_term"] = pd.to_numeric(overlap[1], errors="coerce")
+    combined_df["gene_ratio"] = combined_df["k_overlap"] / max(N, 1)
+
+    combined_df["Term_short"] = combined_df["Term"].astype(str).str.slice(0, 60)
+    
+    combined_df["y_label"] = (
+        combined_df["Term_short"]
+        + "  [k="
+        + combined_df["k_overlap"].fillna(0).astype(int).astype(str)
+        + "]"
+    )
+
+
+    if sort_by == "gene_ratio":
+        combined_df = combined_df.sort_values(
+            ["gene_ratio", "Adjusted P-value"],
+            ascending=[False, True]
+        )
+    elif sort_by in ["padj", "Adjusted P-value"]:
+        combined_df = combined_df.sort_values(
+            ["Adjusted P-value", "gene_ratio"],
+            ascending=[True, False]
+        )
+    else:
+        raise ValueError("sort_by must be 'gene_ratio' or 'padj'")
+
+    # Alphabetic ordering for deterministic colors
+    # present_sets = sorted(combined_df["Gene_set"].unique())
+    
+    # Build a deterministic palette list with one color per gene set
+    # palette_list = sns.color_palette(palette, n_colors=len(present_sets))
+    # print(palette_list)
 
 
     # Dynamic figure height
     n_terms = combined_df.shape[0]
     buffer = 1
-    height_per_row = 0.3
-    max_height = 20
+    height_per_row = 0.35
+    max_height = 24
     dynamic_height = min(buffer + (n_terms * height_per_row), max_height)
-    
-    plt.figure(figsize=(figsize[0], dynamic_height))
-    sns.barplot(
+
+    # Plot:
+    #   x-axis = Adjusted P-value (log scale)
+    #   color  = Gene_set
+    #   size   = gene_ratio
+    #   y      = "Gene_set [k=..] Term"
+    plt.figure(figsize=(figsize[0], dynamic_height), dpi=200)
+
+    ax = sns.scatterplot(
         data=combined_df,
-        y="Term",
-        x="-log10(Adjusted p-value)",
+        x="Adjusted P-value",
+        y="y_label",
         hue="Gene_set",
-        dodge=False,
-        palette=palette
+        size="gene_ratio",
+        sizes=(40, 350),
+        alpha=0.9,
+        edgecolor="none",
+        hue_order=gene_sets,      # <--- key for reproducibility
+        # palette=palette_list,        # <--- list aligned to hue_order
     )
 
-    if title is None:
-        no_genes = len(set(gene_list))
-        title = f"Top {top_n if not show_all_significant else 'All Significant'} Enriched Terms ({no_genes} genes)"
-    title = title + title_suffix
+    # Log scale for p-values so you can see range properly
+    ax.set_xscale("log")
+    ax.invert_xaxis()
+    ax.axvline(padj_cutoff, linestyle="--", linewidth=1.5)
+    ax.set_xlabel("Adjusted p-value (log scale)")
+    ax.set_ylabel("")
 
-    plt.title(title)
-    plt.xlabel("-log10(Adjusted p-value)")
-    plt.axvline(-np.log10(0.05), color='red', linestyle='--', label='Adjusted p = 0.05')
+    if title is None:
+        title = f"Enrichment overview ({N} genes)"
+    ax.set_title(title + title_suffix)
+
     if show_legend:
-        plt.legend(loc='lower center')
+        # Put legend outside if it gets crowded
+        ax.legend(loc="lower left", bbox_to_anchor=(1.02, 0.0), borderaxespad=0.0, frameon=True)
     else:
-        plt.legend().set_visible(False)
+        if ax.legend_ is not None:
+            ax.legend_.set_visible(False)
+            
+    handles, labels = ax.get_legend_handles_labels()
+
+    new_labels = []
+    for lab in labels:
+        try:
+            new_labels.append(f"{float(lab):.2f}")
+        except ValueError:
+            new_labels.append(lab)
+    
+    ax.legend(handles, new_labels,
+              loc="lower left",
+              bbox_to_anchor=(1.02, 0.0),
+              borderaxespad=0.0,
+              frameon=True)
+
+
     plt.tight_layout()
 
     if out_dir:
-        filename = f"multi_enrichment_plot{filename_suffix}.svg"
-        path = f"{out_dir}/{filename}"
+        filename = f"multi_enrichment_dotplot_padj{filename_suffix}.svg"
+        path = os.path.join(out_dir, filename)
         plt.savefig(path)
         print(f"Saved plot to {path}")
-    plt.show()
 
+    plt.show()
     return combined_df
 
 
@@ -774,8 +882,6 @@ def KTC_make_list(not_list):
     # Return as list of strings
     return lines
 
-print(KTC_make_list('''MYC
-                    MYB'''))
 
 #%% =============================================================================
 # 
@@ -956,4 +1062,140 @@ def KTC_ncbi_gene_scraper(
     # If a query matched, prefer the NCBI official symbol; otherwise keep the query
     df["symbol"] = df["symbol"].mask(df["symbol"].eq(""), df["query"])
     return df
+
+#%% =============================================================================
+# Extracting gene names from a URL
+# =============================================================================
+
+def KTC_GenesFromURL(url, write_file=False, out_path=None):
+    """
+    Fetch Harmonizome gene set from URL and extract gene symbols.
+    """
+
+    response = requests.get(url)
+    response.raise_for_status()  # fail loudly if something is wrong
+
+    data = response.json()
+
+    genes = [
+        entry["gene"]["symbol"]
+        for entry in data.get("associations", [])
+        if "gene" in entry and "symbol" in entry["gene"]
+    ]
+
+    # remove duplicates while preserving order
+    genes = list(dict.fromkeys(genes))
+
+    if write_file and out_path is not None:
+        with open(out_path, "w") as f:
+            for g in genes:
+                f.write(g + "\n")
+
+    return genes
+
+# print(KTC_GenesFromURL('https://maayanlab.cloud/Harmonizome/api/1.0/gene_set/NAMPT/Pathway+Commons+Protein-Protein+Interactions'))
+
+
+#%% =============================================================================
+# GSEA
+# =============================================================================
+from gseapy.plot import gseaplot
+
+
+def KTC_GSEA(
+    deseq_path,
+    genes,                  # your list of HGNC symbols
+    set_name="My_Gene_Set",
+    rank_by="stat",         # recommended: "stat"
+    permutations=2000,
+    min_size=5,
+    max_size=500,
+    out_png="gsea_plot.png",
+    seed=0,
+    ds = None
+):
+    """
+    Runs preranked GSEA on a single custom gene list and produces
+    a classic enrichment plot.
+    """
+
+    # -----------------------------
+    # 1. Load DESeq2 results
+    # -----------------------------
+    df = pd.read_csv(deseq_path, sep=None, engine="python")
+
+    required_cols = {"hgnc_symbol", rank_by}
+    if not required_cols.issubset(df.columns):
+        raise ValueError(f"DESeq file must contain: {required_cols}")
+
+    df["hgnc_symbol"] = df["hgnc_symbol"].astype(str).str.strip()
+
+    # Remove bad rows
+    df = df.replace([np.inf, -np.inf], np.nan)
+    df = df.dropna(subset=["hgnc_symbol", rank_by])
+
+    # -----------------------------
+    # 2. Build ranked list
+    # -----------------------------
+    rnk = df[["hgnc_symbol", rank_by]].copy()
+
+    # If duplicated gene symbols exist, keep strongest absolute score
+    rnk["abs_score"] = rnk[rank_by].abs()
+    rnk = rnk.sort_values("abs_score", ascending=False)
+    rnk = rnk.drop_duplicates("hgnc_symbol")
+
+    rnk = rnk.sort_values(rank_by, ascending=False)
+    rnk = rnk[["hgnc_symbol", rank_by]]
+    rnk.columns = ["gene", "score"]
+
+    # -----------------------------
+    # 3. Run preranked GSEA
+    # -----------------------------
+    gene_sets = {set_name: list(set(genes))}
+
+    pre = gp.prerank(
+        rnk=rnk,
+        gene_sets=gene_sets,
+        min_size=min_size,
+        max_size=max_size,
+        permutation_num=permutations,
+        seed=seed,
+        outdir=None,  # don't write files
+        verbose=False
+    )
+
+    # -----------------------------
+    # 4. Extract results
+    # -----------------------------
+    res = pre.results[set_name]
+
+    # -----------------------------
+    # 5. Plot classic GSEA figure
+    # -----------------------------
+    plot_obj = gseaplot(
+        rank_metric=rnk["score"].values,
+        term=set_name,
+        hits=res["hits"],
+        RES=res["RES"],
+        nes=res["nes"],
+        pval=res["pval"],
+        fdr=res["fdr"],
+        figsize=(6,5)
+    )
+
+    # Handle different return types across gseapy versions
+    if isinstance(plot_obj, tuple):
+        fig = plot_obj[0]
+    elif isinstance(plot_obj, list):
+        fig = plot_obj[0].figure
+    else:
+        fig = plot_obj.figure
+
+    fig.tight_layout()
+    # fig.savefig(out_png, dpi=300)
+    if ds != None:
+        plt.title(f'{ds}')
+    plt.show()
+
+    return pre, res
 
